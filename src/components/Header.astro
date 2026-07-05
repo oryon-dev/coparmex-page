@@ -1,0 +1,275 @@
+---
+import { Image } from "astro:assets";
+import logoCoparmexValldolid from "../assets/branding/coparmex-valladolid-logo-h.png";
+
+//Navegacion
+type SubItem = {
+  label: string;
+  href: string;
+};
+
+type NavItem = {
+  label: string;
+  href: string;
+  subItems?: SubItem[];
+};
+
+//Navegación
+const navItems: NavItem[] = [
+  { label: "Inicio", href: "/" },
+  {
+    label: "Coparmex",
+    href: "#",
+    subItems: [
+      { label: "Nuestra Historia", href: "/proximamente" },
+      { label: "Mesa Directiva", href: "/proximamente" },
+    ],
+  },
+  {
+    label: "Servicios",
+    href: "#",
+    subItems: [
+      { label: "Representación Jurídica", href: "/proximamente" },
+      { label: "Capacitación", href: "/proximamente" },
+      { label: "Networking", href: "/proximamente" },
+    ],
+  },
+  {
+    label: "Socios",
+    href: "#",
+    subItems: [
+      { label: "Directorio de Socios", href: "/proximamente" },
+      { label: "Beneficios de Afiliación", href: "/proximamente" },
+      { label: "Convenios B2B", href: "/proximamente" },
+    ],
+  },
+  {
+    label: "Comunicación",
+    href: "#",
+    subItems: [
+      { label: "Noticias", href: "/proximamente" },
+      { label: "Eventos", href: "/proximamente" },
+    ],
+  },
+  {
+    label: "Contacto y Afiliación",
+    href: "/proximamente",
+  },
+];
+---
+
+<header
+  id="main-header"
+  class="bg-[var(--color-surface-container-lowest)] border-b border-[var(--color-outline-variant)] shadow-sm fixed top-0 w-full z-50 transition-all duration-300 py-4"
+>
+  <div
+    class="flex flex-col items-center justify-center max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] w-full"
+  >
+    <div
+      id="logo-wrapper"
+      class="w-full flex justify-between items-center md:justify-center relative transition-all duration-300 max-h-24 opacity-100 overflow-visible"
+    >
+      <a
+        href="/"
+        class="block transform hover:scale-105 transition-transform duration-300"
+      >
+        <Image
+          alt="COPARMEX Logo"
+          class="h-12 md:h-20 object-contain"
+          src={logoCoparmexValldolid}
+        />
+      </a>
+
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-[var(--color-primary)] p-2 focus:outline-none"
+        aria-label="Toggle menu"
+      >
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+
+    <nav
+      id="desktop-nav-container"
+      class="hidden md:flex gap-8 border-t border-[var(--color-outline-variant)] mt-4 pt-4 w-full justify-center transition-all duration-300"
+    >
+      {
+        navItems.map((item) => (
+          <div class="relative group">
+            <a
+              href={item.href}
+              class={`nav-link font-montserrat font-semibold text-sm uppercase tracking-wider transition-colors flex items-center gap-1 py-2 ${item.label === "Inicio" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)]"}`}
+            >
+              {item.label}
+              {item.subItems && (
+                <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">
+                  expand_more
+                </span>
+              )}
+            </a>
+
+            {/* Submenú Desktop */}
+            {item.subItems && (
+              <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-56 bg-white border border-[var(--color-outline-variant)] shadow-xl rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                <ul class="py-2">
+                  {item.subItems.map((sub) => (
+                    <li>
+                      <a
+                        href={sub.href}
+                        class="block px-4 py-2 text-sm text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-low)] hover:text-[var(--color-primary)] transition-colors"
+                      >
+                        {sub.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<div
+  id="mobile-menu"
+  class="fixed inset-0 top-0 pt-[80px] bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto border-t border-[var(--color-outline-variant)]"
+>
+  <nav class="flex flex-col p-6 gap-2">
+    {
+      navItems.map((item) =>
+        item.subItems ? (
+          <details class="group border-b border-[var(--color-outline-variant)]/50 pb-2">
+            <summary class="flex justify-between items-center py-3 font-montserrat font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider cursor-pointer list-none">
+              {item.label}
+              <span class="material-symbols-outlined text-sm transition-transform duration-200 group-open:rotate-180">
+                expand_more
+              </span>
+            </summary>
+            <ul class="flex flex-col gap-2 pl-4 mt-2 mb-2">
+              {item.subItems.map((sub) => (
+                <li>
+                  <a
+                    href={sub.href}
+                    class="block py-2 text-sm text-[var(--color-on-surface-variant)]/80 hover:text-[var(--color-primary)]"
+                  >
+                    {sub.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ) : (
+          <a
+            href={item.href}
+            class={`block py-3 border-b border-[var(--color-outline-variant)]/50 font-montserrat font-semibold uppercase tracking-wider ${item.label === "Inicio" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}
+          >
+            {item.label}
+          </a>
+        ),
+      )
+    }
+  </nav>
+</div>
+
+<style>
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
+
+<script>
+  const header = document.getElementById("main-header");
+  const logoWrapper = document.getElementById("logo-wrapper");
+  const navContainer = document.getElementById("desktop-nav-container");
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const iconSpan = mobileBtn?.querySelector("span");
+
+  let lastScrollY = window.scrollY;
+  let isMenuOpen = false;
+
+  const handleScroll = () => {
+    if (isMenuOpen) return;
+
+    // Lógica para Celulares (< 768px)
+    if (window.innerWidth < 768) {
+      header?.classList.remove("py-1");
+      header?.classList.add("py-4");
+      logoWrapper?.classList.remove(
+        "md:max-h-0",
+        "md:opacity-0",
+        "md:overflow-hidden",
+      );
+      navContainer?.classList.remove("md:mt-0", "md:pt-0", "md:border-t-0");
+
+      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        header?.classList.add("-translate-y-full");
+      } else {
+        header?.classList.remove("-translate-y-full");
+      }
+
+      lastScrollY = window.scrollY;
+      return;
+    }
+
+    // Lógica para Escritorio (>= 768px)
+    if (window.scrollY > 60) {
+      header?.classList.replace("py-4", "py-1");
+      logoWrapper?.classList.add(
+        "md:max-h-0",
+        "md:opacity-0",
+        "md:overflow-hidden",
+      );
+      navContainer?.classList.remove("md:mt-4", "md:pt-4");
+      navContainer?.classList.add("md:mt-0", "md:pt-0", "md:border-t-0");
+    } else {
+      header?.classList.replace("py-1", "py-4");
+      logoWrapper?.classList.remove(
+        "md:max-h-0",
+        "md:opacity-0",
+        "md:overflow-hidden",
+      );
+      navContainer?.classList.remove("md:mt-0", "md:pt-0", "md:border-t-0");
+      navContainer?.classList.add("md:mt-4", "md:pt-4");
+    }
+
+    lastScrollY = window.scrollY;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleScroll);
+
+  mobileBtn?.addEventListener("click", () => {
+    isMenuOpen = !isMenuOpen;
+
+    if (isMenuOpen) {
+      mobileMenu?.classList.remove("translate-x-full");
+      header?.classList.remove("-translate-y-full");
+      if (iconSpan) iconSpan.textContent = "close";
+      document.body.style.overflow = "hidden";
+    } else {
+      mobileMenu?.classList.add("translate-x-full");
+      if (iconSpan) iconSpan.textContent = "menu";
+      document.body.style.overflow = "";
+    }
+  });
+</script>

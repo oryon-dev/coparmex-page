@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import icono from "../assets/branding/icono.png";
+---
+
+<BaseLayout title="Próximamente">
+  <section
+    class="flex-grow flex items-center justify-center w-full px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] py-8 md:py-20 bg-[var(--color-surface-bright)] relative overflow-hidden my-auto"
+  >
+    <div
+      class="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[var(--color-surface-container)] rounded-full mix-blend-multiply filter blur-[140px] opacity-50 pointer-events-none"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 left-10 w-[400px] h-[400px] bg-[var(--color-primary-fixed)] rounded-full mix-blend-multiply filter blur-[120px] opacity-30 pointer-events-none"
+    >
+    </div>
+
+    <div
+      class="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+    >
+      <div
+        class="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start order-2 lg:order-1"
+      >
+        <span
+          class="text-[var(--color-primary)] font-montserrat font-bold tracking-widest uppercase mb-4 block text-sm"
+        >
+          Sitio en Desarrollo
+        </span>
+
+        <h1
+          class="font-playfair text-4xl md:text-5xl lg:text-6xl text-[var(--color-on-surface)] font-black tracking-tight mb-6 leading-tight"
+        >
+          Impulsando un nuevo espacio empresarial
+        </h1>
+
+        <p
+          class="font-inter text-base md:text-lg text-[var(--color-on-surface-variant)] mb-10 font-light leading-relaxed max-w-xl"
+        >
+          Estamos diseñando la plataforma digital oficial de COPARMEX
+          Valladolid. Muy pronto los empresarios y socios de la región sureste
+          contarán con un portal de vanguardia para potenciar su competitividad
+          institucional.
+        </p>
+
+        <div
+          class="w-full max-w-md bg-white p-6 md:p-8 rounded-2xl shadow-[0_15px_40px_-10px_rgba(0,71,187,0.1)] border border-[var(--color-outline-variant)]/30"
+        >
+          <h3
+            class="font-montserrat font-semibold text-sm text-[var(--color-on-surface)] uppercase tracking-wider mb-3"
+          >
+            ¿Quieres recibir una notificación al lanzar?
+          </h3>
+
+          <form
+            class="flex flex-col sm:flex-row gap-3 w-full"
+            onsubmit="event.preventDefault(); alert('¡Gracias! Te notificaremos el día del lanzamiento.');"
+          >
+            <input
+              type="email"
+              required
+              placeholder="Tu correo electrónico"
+              class="flex-grow px-5 py-3 rounded-xl border border-[var(--color-outline-variant)] text-sm focus:outline-none focus:border-[var(--color-primary)] font-inter bg-[var(--color-surface-bright)] transition-colors"
+            />
+            <button
+              type="submit"
+              class="bg-[var(--color-primary)] text-white font-inter font-semibold px-6 py-3 rounded-xl text-sm uppercase tracking-wider hover:bg-[var(--color-primary-container)] transition-all shadow-[0_5px_15px_rgba(0,71,187,0.2)] text-center whitespace-nowrap"
+            >
+              Notificarme
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 flex justify-center order-1 lg:order-2 w-full">
+        <div
+          class="w-full max-w-md lg:max-w-full aspect-square relative flex items-center justify-center p-4"
+        >
+          <Image
+            src={icono}
+            alt="Ilustración de sitio en construcción y conexiones empresariales"
+            inferSize={true}
+            class="w-full h-auto max-h-[450px] object-contain drop-shadow-md animate-pulse"
+            style="animation-duration: 4s;"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
