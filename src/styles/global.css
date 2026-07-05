@@ -1,0 +1,86 @@
+@import "tailwindcss";
+/* @import url("https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Freeman:wght@400;700&family=Montserrat:wght@500;600;700;800&display=swap"); */
+
+/* @theme { */
+/* Colors - Brand */
+/* --color-brand-primary: #ff4200;
+  --color-brand-secondary: #fb9004;
+  --color-brand-accent: #ffe32d;
+  --color-brand-neutral: #564336; */
+
+/* Colors - Surface & UI */
+/* --color-surface: #fff8f5;
+  --color-surface-dim: #f1d5c3;
+  --color-surface-container: #ffeadd;
+  --color-on-surface: #27180e;
+  --color-outline: #926f66; */
+
+/* Fonts */
+/* --font-heading: "Bowlby One SC", sans-serif;
+  --font-body: "Freeman", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif; */
+
+/* Spacing */
+/* --spacing-unit: 8px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 40px; */
+
+/* Border Radius (Shapes) */
+/* --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem; */
+
+/* Tonal Layers & Tactile Shadows */
+/* --shadow-card:
+    0 4px 6px -1px rgba(86, 67, 54, 0.1), 0 2px 4px -1px rgba(86, 67, 54, 0.06);
+  --shadow-floating:
+    0 10px 15px -3px rgba(86, 67, 54, 0.15),
+    0 4px 6px -2px rgba(86, 67, 54, 0.1); */
+/* } */
+
+/* Estilos base globales alineados al Design System
+*/
+@layer base {
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-brand-neutral);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-brand-neutral);
+  }
+
+  h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 28px;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
