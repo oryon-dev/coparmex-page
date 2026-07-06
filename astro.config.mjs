@@ -11,4 +11,10 @@ export default defineConfig({
   image: {
     domains: ["lh3.googleusercontent.com"],
   },
+  redirects: {
+    "/": {
+      status: 302,
+      destination: "/proximamente",
+    },
+  },
 });

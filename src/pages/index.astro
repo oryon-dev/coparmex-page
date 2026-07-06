@@ -2,6 +2,714 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="COPARMEX Valladolid - Inicio">
-  <h2>Página de coparmex</h2>
+<BaseLayout title="Inicio">
+  <!-- Editorial Hero Section -->
+  <section
+    class="relative w-full h-[800px] flex items-center justify-center overflow-hidden"
+  >
+    <!-- WebGL Background Placeholder -->
+    <div id="shader-bg"></div>
+
+    <div
+      class="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-[15000ms] ease-linear"
+      id="hero-bg-zoom"
+      style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2vzXWFWC84nUWkDABJJPQm45VEisiSZEUfPEQucENQiACwZPGnJzURpELy3jk-PLGU23J47uxTwDpKj-dYRLlwqlXEK8PfIplTkiw0LzJRP6rmzxE8JdDNFxYEq_P5y76qYBZ7Mnbb_LhdyIyTt0Awu16TUEBrfhESFQhX2dpt9KYqreuAGvNsEmqbACmUzxEWk2Xr-SUip3uUNs_qBoUBowlCogTDRDk2ZgoFoxr2nF3LVfKl-F76WoaPLEd_2-AqjoXeO9k054');"
+    >
+    </div>
+    <div class="absolute inset-0 hero-overlay z-[2]"></div>
+
+    <div
+      class="relative z-10 text-center max-w-5xl px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] w-full reveal"
+    >
+      <div
+        class="glass-card p-8 md:p-20 rounded-2xl hover:bg-white/10 transition-all duration-500 mx-4 md:mx-0"
+      >
+        <h1
+          class="font-playfair font-black text-4xl md:text-6xl text-[var(--color-on-primary)] mb-8 leading-tight heading-transition"
+        >
+          Liderazgo Empresarial para el Futuro de Valladolid
+        </h1>
+        <p
+          class="font-inter font-light text-lg md:text-xl text-[var(--color-on-primary)]/90 mb-12 max-w-3xl mx-auto"
+        >
+          Forjando alianzas estratégicas, defendiendo la libre empresa y
+          catalizando el crecimiento económico regional a través de una
+          representación institucional de excelencia.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-6 justify-center items-center"
+        >
+          <a
+            href="#servicios"
+            class="bg-[var(--color-surface-container-lowest)] text-[var(--color-primary)] font-montserrat font-semibold px-10 py-4 hover:bg-[var(--color-surface-container-high)] transition-all shadow-xl tracking-widest uppercase text-sm transform hover:scale-105 hover:-translate-y-1 w-full sm:w-auto text-center"
+          >
+            Descubre el Impacto
+          </a>
+          <a
+            href="#socios"
+            class="bg-transparent border border-[var(--color-on-primary)] text-[var(--color-on-primary)] font-montserrat font-semibold px-10 py-4 hover:bg-[var(--color-on-primary)]/10 transition-all tracking-widest uppercase text-sm transform hover:scale-105 hover:-translate-y-1 w-full sm:w-auto text-center"
+          >
+            Ver Comunidad
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Red de Socios Infinite Scroll -->
+  <section
+    class="py-[var(--spacing-margin-desktop)] md:py-[var(--spacing-section-gap)] bg-[var(--color-surface-container-lowest)] border-b border-[var(--color-outline-variant)]/20 overflow-hidden"
+  >
+    <div
+      class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] reveal"
+    >
+      <div class="text-center mb-12">
+        <h2
+          class="font-montserrat font-bold text-2xl md:text-3xl text-[var(--color-primary)] uppercase tracking-wider heading-transition"
+        >
+          Nuestra Red de Socios
+        </h2>
+        <div
+          class="w-24 h-1 bg-[var(--color-primary)] mx-auto mt-4 transition-all duration-700 w-0 group-active:w-24"
+        >
+        </div>
+      </div>
+      <div class="relative overflow-hidden w-full">
+        <div class="infinite-scroll gap-12 items-center">
+          <!-- Multiplicamos los logos para el efecto infinito -->
+          {
+            [1, 2, 3, 4, 1, 2, 3, 4].map((num) => (
+              <div class="w-[200px] md:w-[250px] shrink-0 flex justify-center p-6 bg-white shadow-sm border border-[var(--color-outline-variant)]/10 rounded-sm hover:shadow-md transition-shadow">
+                <img
+                  alt={`Partner Logo ${num}`}
+                  class="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgZuxohacIk-aN-QJtnGWrqRw8XCW3Er9xez0c49a_KSz5lEpIRfSIaPE2-abq7Ylriun4c6M2rCi4ioPgec_zWLI9yKsFHZ3yXoIQINVaBxdgkXPC6ltr7PSTrEJSTnWWYim-XO5pzqo5YYJTJiifoB3I0UGcoQ3_9rU59piAiQrbps5AAbfP_YcI3YMNNLJKcgUaRVgymwUs3AObY70p27QYBZWNa_JJ9eU3T4UACoMsQDvMVfSyc2sCsKHnQYP7roZ9W-zVuHk"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Narrative Structure: Historia & Visión -->
+  <section
+    class="py-[var(--spacing-margin-desktop)] md:py-[var(--spacing-section-gap)] bg-[var(--color-surface-container-lowest)] overflow-hidden"
+    id="historia"
+  >
+    <div
+      class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+    >
+      <!-- Staggered Block 1 -->
+      <div
+        class="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-24 reveal"
+      >
+        <div class="w-full md:w-1/2">
+          <div
+            class="relative w-full aspect-[4/3] editorial-image-mask overflow-hidden group"
+          >
+            <img
+              alt="Professional meeting"
+              class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-1000"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe_U0IYEpzmbfK-IGYmJBwqqcWXsEv4dpL8Vc9ttEqvkSKtzn_mEyP0JHHjruGvYfk7PCCfLBT3dtVjpTEVcjUS5j9CargzeZuUBhwEebK9gsWdpJt0W3iaCXg0MIlM1YpJYLgG1_P9k-faeDnE9qCBOcDj8YARQ51k9o5ME6EU5b2fMeYBI0FwoKvByuxCweH7jLwtj3ektuQIAtDGGae5M5kMGL8vlFq93ISFC5jA9pzc7PyE8xqywmf0RNZ1C-AkQ229WlM1b8"
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <span
+            class="text-[var(--color-primary)] font-montserrat font-semibold text-xs tracking-widest uppercase mb-4 block"
+            >Nuestra Esencia</span
+          >
+          <h2
+            class="font-playfair font-bold text-3xl md:text-5xl text-[var(--color-on-surface)] mb-8 heading-transition leading-tight"
+          >
+            Más que una representación, somos el motor del cambio.
+          </h2>
+          <p
+            class="font-inter font-light text-lg text-[var(--color-on-surface-variant)] mb-6 leading-relaxed"
+          >
+            COPARMEX Valladolid se erige como el bastión del empresariado local.
+            Somos un sindicato patronal independiente y de afiliación
+            voluntaria, donde confluyen visiones de todos los tamaños y sectores
+            para tejer un ecosistema empresarial resiliente.
+          </p>
+          <p
+            class="font-inter text-base text-[var(--color-on-surface-variant)] leading-relaxed"
+          >
+            Defendemos con firmeza los legítimos intereses del sector,
+            promoviendo un entorno donde la inversión florece, la creación de
+            empleo se multiplica y el desarrollo económico sostenible se
+            convierte en la norma para nuestra región.
+          </p>
+        </div>
+      </div>
+
+      <!-- Staggered Block 2 -->
+      <div
+        class="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16 reveal"
+      >
+        <div class="w-full md:w-1/2">
+          <div
+            class="relative w-full aspect-[4/3] editorial-image-mask-alt overflow-hidden group"
+          >
+            <img
+              alt="Handshake"
+              class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-1000"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSS2OVSMobU4b0E2bkah9jb_Y0kPdUVCmLm2gBrRnjRUCJI7Xqv0bVl8z7_uHS_m3MjYCWBK2Xv1ROW6cWtbBW1ZZq8kaJeUm5t6NziV-2Wm4f1ehH0iyBmAXK1a0icnckLLNcsFc-YwyxMVOnhhYwlOdK9jKQhqOQWaGqtzsDi7a-cDNFc56wuifywIwntBciiveobvOrp3pleiDlkH6nq4uQOr5PMCVrS5v1YP_O2A85GMPQK8fcJ7bRlAltLDGAQcF2S6Fomxk"
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <span
+            class="text-[var(--color-primary)] font-montserrat font-semibold text-xs tracking-widest uppercase mb-4 block"
+            >Visión Estratégica</span
+          >
+          <h2
+            class="font-playfair font-bold text-3xl md:text-5xl text-[var(--color-on-surface)] mb-8 heading-transition leading-tight"
+          >
+            Impulsando la competitividad a través de la unión.
+          </h2>
+          <p
+            class="font-inter font-light text-lg text-[var(--color-on-surface-variant)] mb-6 leading-relaxed"
+          >
+            Nuestra misión trasciende el presente. Visualizamos un Valladolid
+            donde cada empresa, desde la más incipiente hasta la más
+            consolidada, posea las herramientas para competir a nivel global.
+          </p>
+          <div class="grid grid-cols-2 gap-8 mt-10">
+            <div
+              class="border-l-2 border-[var(--color-primary)] pl-6 hover:border-l-4 transition-all"
+            >
+              <h3
+                class="font-playfair font-bold text-4xl text-[var(--color-primary)] mb-2"
+              >
+                +50
+              </h3>
+              <p
+                class="font-montserrat font-semibold text-xs text-[var(--color-on-surface-variant)] uppercase tracking-wider"
+              >
+                Empresas Aliadas
+              </p>
+            </div>
+            <div
+              class="border-l-2 border-[var(--color-primary)] pl-6 hover:border-l-4 transition-all"
+            >
+              <h3
+                class="font-playfair font-bold text-4xl text-[var(--color-primary)] mb-2"
+              >
+                100%
+              </h3>
+              <p
+                class="font-montserrat font-semibold text-xs text-[var(--color-on-surface-variant)] uppercase tracking-wider"
+              >
+                Compromiso Legal
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Elegant Services Layout -->
+  <section
+    class="py-[var(--spacing-margin-desktop)] md:py-[var(--spacing-section-gap)] bg-[var(--color-surface-bright)]"
+    id="servicios"
+  >
+    <div
+      class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+    >
+      <div class="text-center mb-16 md:mb-20 reveal">
+        <span
+          class="text-[var(--color-primary)] font-montserrat font-semibold text-xs tracking-widest uppercase mb-4 block"
+          >Impacto Directo</span
+        >
+        <h2
+          class="font-playfair font-bold text-3xl md:text-5xl text-[var(--color-on-surface)] mb-6 max-w-3xl mx-auto heading-transition"
+        >
+          Servicios Especializados para el Crecimiento Sostenido
+        </h2>
+        <div class="w-24 h-1 bg-[var(--color-primary)] mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Tarjeta 1 -->
+        <div
+          class="group reveal card-glow p-4 rounded-xl border border-transparent bg-white shadow-sm"
+        >
+          <div class="h-64 mb-8 overflow-hidden rounded-sm relative">
+            <div
+              class="absolute inset-0 bg-[var(--color-primary)]/10 group-hover:bg-transparent transition-colors z-10"
+            >
+            </div>
+            <img
+              alt="Legal professional"
+              class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDC763f8wpBEvgGdLmle2KBwHVcIgYYOkARRDll5BPTPGzPLM9NZwh1HVQW_2fM8sBurXR-0n_6qKqBtK-84gTTWRj92yS-YMW7ViOOPitK04K1gGcSbuwSkYuvAT33XBG2OtRGHVsFchjzBJhGYT_shaQQzxu73O-YZDAe3wE7GfNVirO1bvLe2cfrtOqM0FS_62ZMW8rGCVyQPBipNUU7H0AWHvDOoVC7sftN_b8MYIvIUylKBhjmfBAGI0fTW-WrjlnpUS4EK8"
+            />
+          </div>
+          <span
+            class="material-symbols-outlined text-[var(--color-primary)] text-3xl mb-4 block transform group-hover:rotate-12 transition-transform"
+            >balance</span
+          >
+          <h3
+            class="font-playfair font-bold text-2xl text-[var(--color-on-surface)] mb-4"
+          >
+            Representación Jurídica
+          </h3>
+          <p
+            class="font-inter font-light text-base text-[var(--color-on-surface-variant)]"
+          >
+            Asesoría legal especializada para proteger los intereses de tu
+            empresa ante diversas instancias gubernamentales y laborales,
+            asegurando certidumbre en cada operación.
+          </p>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div
+          class="group reveal card-glow p-4 rounded-xl border border-transparent bg-white shadow-sm"
+          style="transition-delay: 100ms;"
+        >
+          <div class="h-64 mb-8 overflow-hidden rounded-sm relative">
+            <div
+              class="absolute inset-0 bg-[var(--color-primary)]/10 group-hover:bg-transparent transition-colors z-10"
+            >
+            </div>
+            <img
+              alt="Corporate training session"
+              class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBbs8HU_glfUNqJtGnlhfoQWJCGoDIPu8dvbhur5t5T0bijDNZqjmHu03fYH5loQSt4p-Rg61UQVUDq8Fb2TNS7UIg6jZVdmCKtzQPYkrS_kfIfezHj_QgTOhzmV8OF7tZ4ZpN_cK9ZR-or8vai5XagSLZDkXugSyyLJVdzs4nBzXtU3YvMq_cahgQG0K4GzoGj08vEKmLwrwQ68PtpWjBo9yOM7tTKNkwYspmxEeKPC68FvkDwQ_-gmOrhrgI-5TR2BdqNsQBhLY"
+            />
+          </div>
+          <span
+            class="material-symbols-outlined text-[var(--color-primary)] text-3xl mb-4 block transform group-hover:rotate-12 transition-transform"
+            >model_training</span
+          >
+          <h3
+            class="font-playfair font-bold text-2xl text-[var(--color-on-surface)] mb-4"
+          >
+            Capacitación de Excelencia
+          </h3>
+          <p
+            class="font-inter font-light text-base text-[var(--color-on-surface-variant)]"
+          >
+            Programas de formación continua, talleres ejecutivos y seminarios
+            diseñados para actualizar las competencias críticas de tu equipo de
+            trabajo y liderazgo.
+          </p>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div
+          class="group reveal card-glow p-4 rounded-xl border border-transparent bg-white shadow-sm"
+          style="transition-delay: 200ms;"
+        >
+          <div class="h-64 mb-8 overflow-hidden rounded-sm relative">
+            <div
+              class="absolute inset-0 bg-[var(--color-primary)]/10 group-hover:bg-transparent transition-colors z-10"
+            >
+            </div>
+            <img
+              alt="Networking event"
+              class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-AW3AczvlkswwSnsElJR38hUDhvPyrscR6sg90Lu6kZFG1aey1ALkR_qSBayheXBnCRgalIUay6EGq5ZgcNFN0J_htZL9wQHssXO-KyCOQzhUMiQreGxrfq5DlLbI9yysawgCCccWM9zn0EFmBMLSekbhQBn7jBS3Z-6Q2TUvyVLHTuk1FDNRbfqE0Kx7dzldKyoACBCUVEc9rcZ5oFuXc7YPyve81yqfCCBjix12Vii-AIGDK-HzfYTNJQ9_N583kl7cY9scLqg"
+            />
+          </div>
+          <span
+            class="material-symbols-outlined text-[var(--color-primary)] text-3xl mb-4 block transform group-hover:rotate-12 transition-transform"
+            >forum</span
+          >
+          <h3
+            class="font-playfair font-bold text-2xl text-[var(--color-on-surface)] mb-4"
+          >
+            Networking Estratégico
+          </h3>
+          <p
+            class="font-inter font-light text-base text-[var(--color-on-surface-variant)]"
+          >
+            Acceso a círculos exclusivos para conectar con otros líderes
+            empresariales, forjando alianzas estratégicas y descubriendo nuevas
+            oportunidades de negocio de alto nivel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklist Benefits with Imagery -->
+  <section
+    class="py-[var(--spacing-margin-desktop)] md:py-[var(--spacing-section-gap)] bg-[var(--color-surface-container-lowest)]"
+  >
+    <div
+      class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+    >
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center"
+      >
+        <div class="reveal">
+          <span
+            class="text-[var(--color-primary)] font-montserrat font-semibold text-xs tracking-widest uppercase mb-4 block"
+            >El Valor de la Afiliación</span
+          >
+          <h2
+            class="font-playfair font-bold text-3xl md:text-5xl text-[var(--color-on-surface)] mb-10 heading-transition leading-tight"
+          >
+            Beneficios Tangibles para una Visión a Largo Plazo.
+          </h2>
+          <ul class="space-y-8">
+            <li
+              class="flex items-start gap-6 group hover:translate-x-2 transition-transform"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-[var(--color-primary-fixed)] flex items-center justify-center shrink-0 group-hover:bg-[var(--color-primary)] transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-[var(--color-primary)] text-xl group-hover:text-white transition-colors"
+                  >handshake</span
+                >
+              </div>
+              <div>
+                <h4
+                  class="font-playfair font-bold text-xl text-[var(--color-on-surface)] mb-2"
+                >
+                  Convenios Exclusivos B2B
+                </h4>
+                <p
+                  class="font-inter font-light text-base text-[var(--color-on-surface-variant)]"
+                >
+                  Acceso a condiciones preferenciales en una red cerrada de
+                  proveedores y socios de primer nivel.
+                </p>
+              </div>
+            </li>
+            <li
+              class="flex items-start gap-6 group hover:translate-x-2 transition-transform"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-[var(--color-primary-fixed)] flex items-center justify-center shrink-0 group-hover:bg-[var(--color-primary)] transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-[var(--color-primary)] text-xl group-hover:text-white transition-colors"
+                  >campaign</span
+                >
+              </div>
+              <div>
+                <h4
+                  class="font-playfair font-bold text-xl text-[var(--color-on-surface)] mb-2"
+                >
+                  Incidencia en Políticas Públicas
+                </h4>
+                <p
+                  class="font-inter font-light text-base text-[var(--color-on-surface-variant)]"
+                >
+                  Respaldo institucional sólido para llevar la voz del
+                  empresariado a las mesas de decisión gubernamental.
+                </p>
+              </div>
+            </li>
+            <li
+              class="flex items-start gap-6 group hover:translate-x-2 transition-transform"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-[var(--color-primary-fixed)] flex items-center justify-center shrink-0 group-hover:bg-[var(--color-primary)] transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-[var(--color-primary)] text-xl group-hover:text-white transition-colors"
+                  >trending_up</span
+                >
+              </div>
+              <div>
+                <h4
+                  class="font-playfair font-bold text-xl text-[var(--color-on-surface)] mb-2"
+                >
+                  Desarrollo de Liderazgo Sectorial
+                </h4>
+                <p
+                  class="font-inter font-light text-base text-[var(--color-on-surface-variant)]"
+                >
+                  Participación activa en comisiones de trabajo para moldear el
+                  futuro de tu industria.
+                </p>
+              </div>
+            </li>
+            <li
+              class="flex items-start gap-6 group hover:translate-x-2 transition-transform"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-[var(--color-primary-fixed)] flex items-center justify-center shrink-0 group-hover:bg-[var(--color-primary)] transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-[var(--color-primary)] text-xl group-hover:text-white transition-colors"
+                  >support_agent</span
+                >
+              </div>
+              <div>
+                <h4
+                  class="font-playfair font-bold text-xl text-[var(--color-on-surface)] mb-2"
+                >
+                  Consultoría Ejecutiva Directa
+                </h4>
+                <p
+                  class="font-inter font-light text-base text-[var(--color-on-surface-variant)]"
+                >
+                  Línea directa para asesoría especializada en coyunturas
+                  fiscales, laborales y de regulación.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="relative reveal" style="transition-delay: 200ms;">
+          <div
+            class="absolute -inset-4 border-2 border-[var(--color-primary-fixed)] rounded-sm transform translate-x-4 translate-y-4"
+          >
+          </div>
+          <img
+            alt="Modern business district"
+            class="relative z-10 w-full h-auto md:h-[700px] object-cover rounded-sm shadow-2xl hover:scale-[1.02] transition-transform duration-700"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Aevy8I4ZS8Rcc4wtpWHFrFntcbpkVwiXlEbdwwIgUWXVtZTsL5IGH80gn9spQ_qfp33GmGJvMEFMYm9rB8muv8_pD9A1B8PfSsKJigKK9QRR-tzBp-KsLOfd2H2nZZGWUgmXpSI6h-VlFgyx-kc2Rt0InS39FtNP6LdPtp-0G3Z7xpqlATG9ykQMOMjNEjauzOB2myWZ9E0JDCiQJd-zgKPR5R1lg61PhQ-xUHmlE6ZWbimS71UjfuwSgXHc2uE_rNz2fs-pMAI"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Highlight & Logos -->
+  <section
+    class="py-[var(--spacing-margin-desktop)] md:py-[var(--spacing-section-gap)] bg-[var(--color-surface-container)]"
+    id="socios"
+  >
+    <div
+      class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+    >
+      <div class="text-center mb-16 reveal">
+        <span
+          class="text-[var(--color-primary)] font-montserrat font-semibold text-xs tracking-widest uppercase mb-4 block"
+          >Nuestra Comunidad</span
+        >
+        <h2
+          class="font-playfair font-bold text-3xl md:text-5xl text-[var(--color-on-surface)] mb-6 heading-transition"
+        >
+          Red de Excelencia Empresarial
+        </h2>
+      </div>
+
+      <!-- Partner of the Month Highlight -->
+      <div
+        class="bg-[var(--color-surface-container-lowest)] p-6 md:p-10 rounded-sm shadow-md mb-12 flex flex-col md:flex-row gap-8 items-center border border-[var(--color-outline-variant)]/30 max-w-4xl mx-auto reveal group"
+      >
+        <div
+          class="w-full md:w-1/3 shrink-0 flex justify-center md:border-r border-[var(--color-outline-variant)]/50 md:pr-8"
+        >
+          <img
+            class="max-w-[150px] md:max-w-[200px] object-contain transform group-hover:scale-110 transition-transform duration-500"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx_6vvKxGD3085f0VSg0CgQbouGbdxzbLdvS7dMtvx6y7On5qke68QgL8Jc63U9B1rhd8_4IL4K_b-UsjbptRdyHKf1FnYu-7syXDHdXPwKuBFeL2sjzToiXGYBH_OldjnGcqilS-IjeHRZGE5l9I1j1Jmp4QwAhU--H9X-mgHsf57Hf20gpZkV-_yE12nVJbQ64nf17jg5iUwKXVk4HtNCEi0ftd_rj1EZer9mtwBpn9JOpYGvXxd1YnpaRAwZAsDJEcamC_aiGA"
+          />
+        </div>
+        <div class="w-full md:w-2/3 text-center md:text-left">
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-4"
+          >
+            <span
+              class="bg-[var(--color-primary)] text-white font-montserrat font-semibold text-xs px-4 py-1 uppercase tracking-widest"
+              >Socio Destacado del Mes</span
+            >
+            <span
+              class="text-[var(--color-on-surface-variant)] text-sm font-semibold tracking-wide"
+              >Sector Turismo</span
+            >
+          </div>
+          <h3
+            class="font-playfair font-bold text-2xl md:text-3xl text-[var(--color-on-surface)] mb-6"
+          >
+            Grupo Hotelero del Sureste
+          </h3>
+          <p
+            class="font-inter font-light text-lg text-[var(--color-on-surface-variant)] italic mb-8 border-l-4 border-[var(--color-primary)] pl-6 text-left"
+          >
+            "Nuestra afiliación a COPARMEX ha sido fundamental para consolidar
+            nuestras operaciones en la región, permitiéndonos elevar los
+            estándares de hospitalidad mientras contribuimos al desarrollo
+            económico ordenado de Valladolid."
+          </p>
+          <button
+            class="text-[var(--color-primary)] font-montserrat font-semibold uppercase tracking-widest text-sm hover:text-[var(--color-primary-container)] flex items-center justify-center md:justify-start gap-2 group-hover:translate-x-2 transition-transform mx-auto md:mx-0"
+          >
+            Leer Caso de Éxito <span class="material-symbols-outlined text-sm"
+              >arrow_forward</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a
+          href="/socios/directorio"
+          class="inline-block bg-transparent border border-[var(--color-outline)] text-[var(--color-on-surface)] font-montserrat font-semibold px-10 py-4 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all tracking-widest uppercase text-sm transform hover:scale-105 hover:-translate-y-1"
+        >
+          Explorar Directorio Completo
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* Clases específicas para efectos visuales del Home (Los generales viven en global.css) */
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 50, 138, 0.6) 0%,
+      rgba(2, 25, 114, 0.75) 100%
+    );
+  }
+
+  .editorial-image-mask {
+    clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+  }
+
+  .editorial-image-mask-alt {
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%);
+  }
+
+  /* Animación Carrusel */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 4));
+    }
+  }
+
+  .infinite-scroll {
+    animation: scroll 30s linear infinite;
+    display: flex;
+    width: calc(250px * 8);
+  }
+
+  .infinite-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* Shader Canvas */
+  #shader-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  // 1. Intersection Observer para animaciones de revelado (.reveal)
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        // revealObserver.unobserve(entry.target); // Opcional: descomentar si solo quieres que anime una vez
+      }
+    });
+  }, observerOptions);
+
+  document
+    .querySelectorAll(".reveal")
+    .forEach((el) => revealObserver.observe(el));
+
+  // 2. WebGL/Canvas Shader para el fondo animado del Hero (Efecto de red/nodos)
+  const createShaderBg = () => {
+    const container = document.getElementById("shader-bg");
+    if (!container) return;
+
+    const canvas = document.createElement("canvas");
+    container.appendChild(canvas);
+    const gl = canvas.getContext("webgl");
+    if (!gl) return;
+
+    const resize = () => {
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    };
+    window.addEventListener("resize", resize);
+    resize();
+
+    const vs = `
+      attribute vec2 position;
+      void main() { gl_Position = vec4(position, 0.0, 1.0); }
+    `;
+
+    // Shader que dibuja ondas sutiles azules
+    const fs = `
+      precision mediump float;
+      uniform float time;
+      uniform vec2 resolution;
+      void main() {
+        vec2 uv = gl_FragCoord.xy / resolution.xy;
+        float color = 0.5 + 0.5 * sin(time + uv.x * 10.0 + uv.y * 5.0);
+        gl_FragColor = vec4(0.0, 0.2, 0.5, color * 0.15);
+      }
+    `;
+
+    const createShader = (
+      gl: WebGLRenderingContext,
+      type: number,
+      source: string,
+    ) => {
+      const s = gl.createShader(type);
+      if (!s) return null;
+      gl.shaderSource(s, source);
+      gl.compileShader(s);
+      return s;
+    };
+
+    const program = gl.createProgram();
+    if (!program) return;
+
+    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vs);
+    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fs);
+
+    if (vertexShader && fragmentShader) {
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+      gl.linkProgram(program);
+      gl.useProgram(program);
+
+      const posAttr = gl.getAttribLocation(program, "position");
+      const posBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
+      gl.bufferData(
+        gl.ARRAY_BUFFER,
+        new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+        gl.STATIC_DRAW,
+      );
+      gl.enableVertexAttribArray(posAttr);
+      gl.vertexAttribPointer(posAttr, 2, gl.FLOAT, false, 0, 0);
+
+      const timeUni = gl.getUniformLocation(program, "time");
+      const resUni = gl.getUniformLocation(program, "resolution");
+
+      const render = (now: number) => {
+        gl.uniform1f(timeUni, now * 0.001);
+        gl.uniform2f(resUni, canvas.width, canvas.height);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        requestAnimationFrame(render);
+      };
+      requestAnimationFrame(render);
+    }
+  };
+
+  // En Astro, aseguramos que el script se ejecute cuando el DOM cargue
+  document.addEventListener("DOMContentLoaded", createShaderBg);
+</script>

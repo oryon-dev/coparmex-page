@@ -2,12 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import icono from "../assets/branding/icono.png";
+import oryonLogo from "../assets/oryon-logo.png";
 ---
 
 <BaseLayout title="Próximamente">
   <section
     class="flex-grow flex items-center justify-center w-full px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] py-8 md:py-20 bg-[var(--color-surface-bright)] relative overflow-hidden my-auto"
   >
+    <!-- Efectos de luces de fondo -->
     <div
       class="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[var(--color-surface-container)] rounded-full mix-blend-multiply filter blur-[140px] opacity-50 pointer-events-none"
     >
@@ -20,6 +22,7 @@ import icono from "../assets/branding/icono.png";
     <div
       class="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
     >
+      <!-- Columna Izquierda: Textos y Formulario -->
       <div
         class="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start order-2 lg:order-1"
       >
@@ -73,17 +76,59 @@ import icono from "../assets/branding/icono.png";
         </div>
       </div>
 
-      <div class="lg:col-span-6 flex justify-center order-1 lg:order-2 w-full">
+      <!-- Columna Derecha: ORYON Protagonista -->
+      <div
+        class="lg:col-span-6 flex justify-center items-center order-1 lg:order-2 w-full"
+      >
         <div
-          class="w-full max-w-md lg:max-w-full aspect-square relative flex items-center justify-center p-4"
+          class="w-full max-w-lg relative flex flex-col items-center justify-center p-6 md:p-10"
         >
+          <!-- Elemento Superior: Coparmex (Reducido) -->
           <Image
             src={icono}
-            alt="Ilustración de sitio en construcción y conexiones empresariales"
-            inferSize={true}
-            class="w-full h-auto max-h-[450px] object-contain drop-shadow-md animate-pulse"
+            alt="COPARMEX Valladolid - En Construcción"
+            class="w-full max-w-[180px] md:max-w-[220px] h-auto object-contain drop-shadow-sm animate-pulse mb-8 mx-auto"
             style="animation-duration: 4s;"
           />
+
+          <!-- Divisor Elegante "Desarrollado Por" -->
+          <div
+            class="flex items-center w-full max-w-[320px] mx-auto mb-8 opacity-90"
+          >
+            <div
+              class="flex-grow h-px bg-gradient-to-r from-transparent to-[var(--color-primary)]"
+            >
+            </div>
+            <span
+              class="mx-4 font-montserrat font-bold text-sm tracking-widest uppercase text-[var(--color-primary)] drop-shadow-sm"
+            >
+              Desarrollado Por
+            </span>
+            <div
+              class="flex-grow h-px bg-gradient-to-l from-transparent to-[var(--color-primary)]"
+            >
+            </div>
+          </div>
+
+          <!-- Elemento Inferior: Destacado de ORYON (Con enlace a LinkedIn) -->
+          <a
+            href="https://www.linkedin.com/company/oryon-dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-white/90 backdrop-blur-xl px-10 py-12 md:py-16 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,71,187,0.2)] border border-white transform hover:scale-105 hover:bg-white transition-all duration-500 w-full flex justify-center relative overflow-hidden group cursor-pointer"
+          >
+            <!-- Brillo de fondo sutil al pasar el mouse sobre la tarjeta de ORYON -->
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--color-primary-fixed)] opacity-0 group-hover:opacity-50 transition-opacity duration-500"
+            >
+            </div>
+
+            <Image
+              src={oryonLogo}
+              alt="ORYON - Agencia de Software"
+              class="h-24 md:h-36 w-auto object-contain drop-shadow-md relative z-10"
+            />
+          </a>
         </div>
       </div>
     </div>
