@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import GDiazAlcocerLogo from "../../assets/shared/socios/grupo-diaz-alcocer-logo.png";
+import GMerzaLogo from "../../assets/shared/socios/grupo-merza-logo.png";
+import GMesonesLogo from "../../assets/shared/socios/grupo-mesones-logo.png";
+import UVYLogo from "../../assets/shared/socios/universidad-de-valladolid-yucatan-logo.png";
+import TrivasaLogo from "../../assets/shared/socios/trivasa-logo.png";
+import CasonaValladoidLogo from "../../assets/shared/socios/la-casona-de-valladolid-logo.png";
+import VallazooLogo from "../../assets/shared/socios/vallazoo-logo.png";
+
+const partnersData = [
+  {
+    id: 1,
+    name: "Grupo Díaz Alcocer",
+    logo: GDiazAlcocerLogo,
+  },
+  {
+    id: 2,
+    name: "Grupo Merza",
+    logo: GMerzaLogo,
+  },
+  {
+    id: 3,
+    name: "Grupo Mesones",
+    logo: GMesonesLogo,
+  },
+  {
+    id: 4,
+    name: "Universidad De Valladolid Yucatán",
+    logo: UVYLogo,
+  },
+  {
+    id: 5,
+    name: "Trivasa",
+    logo: TrivasaLogo,
+  },
+  {
+    id: 6,
+    name: "Vallazoo",
+    logo: VallazooLogo,
+  },
+  {
+    id: 6,
+    name: "La Casona De Valladolid",
+    logo: CasonaValladoidLogo,
+  },
+];
+
+const infinitePartners = [...partnersData, ...partnersData];
+---
+
+<section
+  class="py-[var(--spacing-margin-desktop)] md:py-[var(--spacing-section-gap)] bg-[var(--color-surface-container-lowest)] border-b border-[var(--color-outline-variant)]/20 overflow-hidden"
+>
+  <div
+    class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] reveal"
+  >
+    <div class="text-center mb-12">
+      <h2
+        class="font-montserrat font-bold text-2xl md:text-3xl text-[var(--color-primary)] uppercase tracking-wider heading-transition"
+      >
+        Nuestra Red de Socios
+      </h2>
+      <div
+        class="w-24 h-1 bg-[var(--color-primary)] mx-auto mt-4 transition-all duration-700 w-0 group-active:w-24"
+      >
+      </div>
+    </div>
+
+    <div class="relative overflow-hidden w-full">
+      <div class="infinite-scroll gap-12 items-center flex w-max">
+        {
+          infinitePartners.map((partner, index) => (
+            <div
+              class="w-[200px] md:w-[250px] shrink-0 flex justify-center p-6 bg-white shadow-sm border border-[var(--color-outline-variant)]/10 rounded-sm hover:shadow-md transition-shadow"
+              title={partner.name}
+            >
+              <Image
+                alt={`Logo de ${partner.name}`}
+                class="h-20 md:h-27 object-contain md:grayscale hover:grayscale-0 transition-all duration-500"
+                src={partner.logo}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 4));
+    }
+  }
+
+  .infinite-scroll {
+    animation: scroll 30s linear infinite;
+    display: flex;
+    width: calc(250px * 8);
+  }
+
+  .infinite-scroll:hover {
+    animation-play-state: paused;
+  }
+</style>

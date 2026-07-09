@@ -1,5 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SociosCarousel from "../components/home/SociosCarousel.astro";
+
+import { Image, getImage } from "astro:assets";
+import valladolidHero from "../assets/pages/home/valladolid-hero.png";
+import esencia from "../assets/pages/home/esencia-coparmex.png";
+import alianza from "../assets/pages/home/alianza.png";
+import respaldo from "../assets/pages/home/legal.png";
+import networking from "../assets/pages/home/networking.png";
+import capacitacion from "../assets/pages/home/capacitacion.png";
+import beneficios from "../assets/pages/home/beneficios.png";
+import GMesonesLogo from "../assets/shared/socios/grupo-mesones-logo.png";
+
+const optBackground = await getImage({
+  src: valladolidHero,
+  format: "webp",
+  width: 1920,
+  quality: "high",
+});
 ---
 
 <BaseLayout title="Inicio">
@@ -13,7 +31,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div
       class="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-[15000ms] ease-linear"
       id="hero-bg-zoom"
-      style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2vzXWFWC84nUWkDABJJPQm45VEisiSZEUfPEQucENQiACwZPGnJzURpELy3jk-PLGU23J47uxTwDpKj-dYRLlwqlXEK8PfIplTkiw0LzJRP6rmzxE8JdDNFxYEq_P5y76qYBZ7Mnbb_LhdyIyTt0Awu16TUEBrfhESFQhX2dpt9KYqreuAGvNsEmqbACmUzxEWk2Xr-SUip3uUNs_qBoUBowlCogTDRDk2ZgoFoxr2nF3LVfKl-F76WoaPLEd_2-AqjoXeO9k054');"
+      style={`background-image: url('${optBackground.src}');`}
     >
     </div>
     <div class="absolute inset-0 hero-overlay z-[2]"></div>
@@ -40,13 +58,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           class="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <a
-            href="#servicios"
+            href="/servicios"
             class="bg-[var(--color-surface-container-lowest)] text-[var(--color-primary)] font-montserrat font-semibold px-10 py-4 hover:bg-[var(--color-surface-container-high)] transition-all shadow-xl tracking-widest uppercase text-sm transform hover:scale-105 hover:-translate-y-1 w-full sm:w-auto text-center"
           >
             Descubre el Impacto
           </a>
           <a
-            href="#socios"
+            href="/socios/directorio"
             class="bg-transparent border border-[var(--color-on-primary)] text-[var(--color-on-primary)] font-montserrat font-semibold px-10 py-4 hover:bg-[var(--color-on-primary)]/10 transition-all tracking-widest uppercase text-sm transform hover:scale-105 hover:-translate-y-1 w-full sm:w-auto text-center"
           >
             Ver Comunidad
@@ -57,41 +75,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <!-- Red de Socios Infinite Scroll -->
-  <section
-    class="py-[var(--spacing-margin-desktop)] md:py-[var(--spacing-section-gap)] bg-[var(--color-surface-container-lowest)] border-b border-[var(--color-outline-variant)]/20 overflow-hidden"
-  >
-    <div
-      class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] reveal"
-    >
-      <div class="text-center mb-12">
-        <h2
-          class="font-montserrat font-bold text-2xl md:text-3xl text-[var(--color-primary)] uppercase tracking-wider heading-transition"
-        >
-          Nuestra Red de Socios
-        </h2>
-        <div
-          class="w-24 h-1 bg-[var(--color-primary)] mx-auto mt-4 transition-all duration-700 w-0 group-active:w-24"
-        >
-        </div>
-      </div>
-      <div class="relative overflow-hidden w-full">
-        <div class="infinite-scroll gap-12 items-center">
-          <!-- Multiplicamos los logos para el efecto infinito -->
-          {
-            [1, 2, 3, 4, 1, 2, 3, 4].map((num) => (
-              <div class="w-[200px] md:w-[250px] shrink-0 flex justify-center p-6 bg-white shadow-sm border border-[var(--color-outline-variant)]/10 rounded-sm hover:shadow-md transition-shadow">
-                <img
-                  alt={`Partner Logo ${num}`}
-                  class="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all duration-500"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgZuxohacIk-aN-QJtnGWrqRw8XCW3Er9xez0c49a_KSz5lEpIRfSIaPE2-abq7Ylriun4c6M2rCi4ioPgec_zWLI9yKsFHZ3yXoIQINVaBxdgkXPC6ltr7PSTrEJSTnWWYim-XO5pzqo5YYJTJiifoB3I0UGcoQ3_9rU59piAiQrbps5AAbfP_YcI3YMNNLJKcgUaRVgymwUs3AObY70p27QYBZWNa_JJ9eU3T4UACoMsQDvMVfSyc2sCsKHnQYP7roZ9W-zVuHk"
-                />
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
+  <SociosCarousel />
 
   <!-- Narrative Structure: Historia & Visión -->
   <section
@@ -109,10 +93,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div
             class="relative w-full aspect-[4/3] editorial-image-mask overflow-hidden group"
           >
-            <img
+            <Image
               alt="Professional meeting"
               class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-1000"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe_U0IYEpzmbfK-IGYmJBwqqcWXsEv4dpL8Vc9ttEqvkSKtzn_mEyP0JHHjruGvYfk7PCCfLBT3dtVjpTEVcjUS5j9CargzeZuUBhwEebK9gsWdpJt0W3iaCXg0MIlM1YpJYLgG1_P9k-faeDnE9qCBOcDj8YARQ51k9o5ME6EU5b2fMeYBI0FwoKvByuxCweH7jLwtj3ektuQIAtDGGae5M5kMGL8vlFq93ISFC5jA9pzc7PyE8xqywmf0RNZ1C-AkQ229WlM1b8"
+              src={esencia}
             />
           </div>
         </div>
@@ -153,10 +137,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div
             class="relative w-full aspect-[4/3] editorial-image-mask-alt overflow-hidden group"
           >
-            <img
+            <Image
               alt="Handshake"
               class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-1000"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSS2OVSMobU4b0E2bkah9jb_Y0kPdUVCmLm2gBrRnjRUCJI7Xqv0bVl8z7_uHS_m3MjYCWBK2Xv1ROW6cWtbBW1ZZq8kaJeUm5t6NziV-2Wm4f1ehH0iyBmAXK1a0icnckLLNcsFc-YwyxMVOnhhYwlOdK9jKQhqOQWaGqtzsDi7a-cDNFc56wuifywIwntBciiveobvOrp3pleiDlkH6nq4uQOr5PMCVrS5v1YP_O2A85GMPQK8fcJ7bRlAltLDGAQcF2S6Fomxk"
+              src={alianza}
             />
           </div>
         </div>
@@ -243,10 +227,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               class="absolute inset-0 bg-[var(--color-primary)]/10 group-hover:bg-transparent transition-colors z-10"
             >
             </div>
-            <img
-              alt="Legal professional"
+            <Image
+              alt="Respaldo Legal"
               class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDC763f8wpBEvgGdLmle2KBwHVcIgYYOkARRDll5BPTPGzPLM9NZwh1HVQW_2fM8sBurXR-0n_6qKqBtK-84gTTWRj92yS-YMW7ViOOPitK04K1gGcSbuwSkYuvAT33XBG2OtRGHVsFchjzBJhGYT_shaQQzxu73O-YZDAe3wE7GfNVirO1bvLe2cfrtOqM0FS_62ZMW8rGCVyQPBipNUU7H0AWHvDOoVC7sftN_b8MYIvIUylKBhjmfBAGI0fTW-WrjlnpUS4EK8"
+              src={respaldo}
             />
           </div>
           <span
@@ -277,10 +261,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               class="absolute inset-0 bg-[var(--color-primary)]/10 group-hover:bg-transparent transition-colors z-10"
             >
             </div>
-            <img
-              alt="Corporate training session"
+            <Image
+              alt="Capacitación y talleres"
               class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBbs8HU_glfUNqJtGnlhfoQWJCGoDIPu8dvbhur5t5T0bijDNZqjmHu03fYH5loQSt4p-Rg61UQVUDq8Fb2TNS7UIg6jZVdmCKtzQPYkrS_kfIfezHj_QgTOhzmV8OF7tZ4ZpN_cK9ZR-or8vai5XagSLZDkXugSyyLJVdzs4nBzXtU3YvMq_cahgQG0K4GzoGj08vEKmLwrwQ68PtpWjBo9yOM7tTKNkwYspmxEeKPC68FvkDwQ_-gmOrhrgI-5TR2BdqNsQBhLY"
+              src={capacitacion}
             />
           </div>
           <span
@@ -311,10 +295,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               class="absolute inset-0 bg-[var(--color-primary)]/10 group-hover:bg-transparent transition-colors z-10"
             >
             </div>
-            <img
-              alt="Networking event"
+            <Image
+              alt="Networking"
               class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-AW3AczvlkswwSnsElJR38hUDhvPyrscR6sg90Lu6kZFG1aey1ALkR_qSBayheXBnCRgalIUay6EGq5ZgcNFN0J_htZL9wQHssXO-KyCOQzhUMiQreGxrfq5DlLbI9yysawgCCccWM9zn0EFmBMLSekbhQBn7jBS3Z-6Q2TUvyVLHTuk1FDNRbfqE0Kx7dzldKyoACBCUVEc9rcZ5oFuXc7YPyve81yqfCCBjix12Vii-AIGDK-HzfYTNJQ9_N583kl7cY9scLqg"
+              src={networking}
             />
           </div>
           <span
@@ -466,10 +450,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             class="absolute -inset-4 border-2 border-[var(--color-primary-fixed)] rounded-sm transform translate-x-4 translate-y-4"
           >
           </div>
-          <img
-            alt="Modern business district"
+          <Image
+            alt="Beneficios tangibles"
             class="relative z-10 w-full h-auto md:h-[700px] object-cover rounded-sm shadow-2xl hover:scale-[1.02] transition-transform duration-700"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Aevy8I4ZS8Rcc4wtpWHFrFntcbpkVwiXlEbdwwIgUWXVtZTsL5IGH80gn9spQ_qfp33GmGJvMEFMYm9rB8muv8_pD9A1B8PfSsKJigKK9QRR-tzBp-KsLOfd2H2nZZGWUgmXpSI6h-VlFgyx-kc2Rt0InS39FtNP6LdPtp-0G3Z7xpqlATG9ykQMOMjNEjauzOB2myWZ9E0JDCiQJd-zgKPR5R1lg61PhQ-xUHmlE6ZWbimS71UjfuwSgXHc2uE_rNz2fs-pMAI"
+            src={beneficios}
           />
         </div>
       </div>
@@ -503,9 +487,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div
           class="w-full md:w-1/3 shrink-0 flex justify-center md:border-r border-[var(--color-outline-variant)]/50 md:pr-8"
         >
-          <img
+          <Image
             class="max-w-[150px] md:max-w-[200px] object-contain transform group-hover:scale-110 transition-transform duration-500"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx_6vvKxGD3085f0VSg0CgQbouGbdxzbLdvS7dMtvx6y7On5qke68QgL8Jc63U9B1rhd8_4IL4K_b-UsjbptRdyHKf1FnYu-7syXDHdXPwKuBFeL2sjzToiXGYBH_OldjnGcqilS-IjeHRZGE5l9I1j1Jmp4QwAhU--H9X-mgHsf57Hf20gpZkV-_yE12nVJbQ64nf17jg5iUwKXVk4HtNCEi0ftd_rj1EZer9mtwBpn9JOpYGvXxd1YnpaRAwZAsDJEcamC_aiGA"
+            alt="Grupo Mesones - Valladolid"
+            src={GMesonesLogo}
           />
         </div>
         <div class="w-full md:w-2/3 text-center md:text-left">
@@ -524,7 +509,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <h3
             class="font-playfair font-bold text-2xl md:text-3xl text-[var(--color-on-surface)] mb-6"
           >
-            Grupo Hotelero del Sureste
+            Grupo Mesones
           </h3>
           <p
             class="font-inter font-light text-lg text-[var(--color-on-surface-variant)] italic mb-8 border-l-4 border-[var(--color-primary)] pl-6 text-left"
@@ -537,9 +522,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <button
             class="text-[var(--color-primary)] font-montserrat font-semibold uppercase tracking-widest text-sm hover:text-[var(--color-primary-container)] flex items-center justify-center md:justify-start gap-2 group-hover:translate-x-2 transition-transform mx-auto md:mx-0"
           >
-            Leer Caso de Éxito <span class="material-symbols-outlined text-sm"
+            <!-- Leer Caso de Éxito <span class="material-symbols-outlined text-sm"
               >arrow_forward</span
-            >
+            > -->
           </button>
         </div>
       </div>
@@ -572,26 +557,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   .editorial-image-mask-alt {
     clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%);
-  }
-
-  /* Animación Carrusel */
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-250px * 4));
-    }
-  }
-
-  .infinite-scroll {
-    animation: scroll 30s linear infinite;
-    display: flex;
-    width: calc(250px * 8);
-  }
-
-  .infinite-scroll:hover {
-    animation-play-state: paused;
   }
 
   /* Shader Canvas */
