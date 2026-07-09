@@ -1,0 +1,282 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SocioCard from "../../components/socios/SocioCard.astro";
+
+import GDiazAlcocerLogo from "../../assets/shared/socios/grupo-diaz-alcocer-logo.png";
+import GMerzaLogo from "../../assets/shared/socios/grupo-merza-logo.png";
+import GMesonesLogo from "../../assets/shared/socios/grupo-mesones-logo.png";
+import UVYLogo from "../../assets/shared/socios/universidad-de-valladolid-yucatan-logo.png";
+import TrivasaLogo from "../../assets/shared/socios/trivasa-logo.png";
+import CasonaValladoidLogo from "../../assets/shared/socios/la-casona-de-valladolid-logo.png";
+import VallazooLogo from "../../assets/shared/socios/vallazoo-logo.png";
+
+const partnersData = [
+  {
+    id: 1,
+    name: "Grupo Díaz Alcocer",
+    logo: GDiazAlcocerLogo,
+    category: "Comercio",
+    description:
+      "Distribución y comercialización de productos con un alto estándar de calidad para la región.",
+    icon: "storefront",
+    facebook: "https://www.facebook.com/grupodiazalcocer/",
+    instagram: "https://www.instagram.com/grupodiazalcocer/",
+    linkedin: "https://www.linkedin.com/in/isaac-díaz-alcocer-15a4606b/",
+  },
+  {
+    id: 2,
+    name: "Grupo Merza",
+    logo: GMerzaLogo,
+    category: "Comercio",
+    description:
+      "Red de distribución mayorista de bienes de consumo masivo en toda la península.",
+    icon: "shopping_cart",
+    website: "https://www.grupomerza.com",
+    facebook: "https://www.facebook.com/TiendasMerza/",
+    instagram: "https://www.instagram.com/tiendasmerza/",
+    linkedin: "https://www.linkedin.com/company/abarrotera-del-duero/",
+  },
+  {
+    id: 3,
+    name: "Grupo Mesones",
+    logo: GMesonesLogo,
+    category: "Turismo",
+    description:
+      "Referente en hospitalidad, ofreciendo experiencias únicas con altos estándares de calidad.",
+    icon: "hotel",
+    website: "https://www.mesondelmarques.com/grupo-mesones",
+    linkedin: "https://www.linkedin.com/company/grupo-mesones/",
+    instagram: "https://www.instagram.com/popular/grupo-mesones/",
+    facebook: "https://www.facebook.com/talentogrupomesones/",
+  },
+  {
+    id: 4,
+    name: "Universidad De Valladolid Yucatán",
+    logo: UVYLogo,
+    category: "Educación",
+    description:
+      "Formando a los futuros líderes y profesionales de excelencia para el desarrollo del sureste.",
+    icon: "school",
+    website: "https://www.uvy.edu.mx",
+    facebook: "https://www.facebook.com/OFICIALUVY/",
+    instagram: "https://www.instagram.com/oficialuvy",
+  },
+  {
+    id: 5,
+    name: "Trivasa",
+    logo: TrivasaLogo,
+    category: "Industria",
+    description:
+      "Producción e innovación de materiales para la construcción e infraestructura de primer nivel.",
+    icon: "precision_manufacturing",
+    website: "https://www.trivasa.com.mx",
+    linkedin: "https://www.linkedin.com/company/trivasa",
+    facebook: "https://www.facebook.com/Trivasa.Valladolid/",
+  },
+  {
+    id: 6,
+    name: "Vallazoo",
+    logo: VallazooLogo,
+    category: "Turismo",
+    description:
+      "Reserva natural y zoológico dedicado a la preservación de la flora y fauna endémica.",
+    icon: "pets",
+    website: "https://www.vallazoo.mx",
+    facebook: "https://facebook.com/vallazoo",
+    instagram: "https://instagram.com/vallazoo",
+  },
+  {
+    id: 7,
+    name: "La Casona De Valladolid",
+    logo: CasonaValladoidLogo,
+    category: "Gastronomía",
+    description:
+      "Gastronomía y tradición yucateca en un espacio histórico y cultural inigualable.",
+    icon: "restaurant",
+    facebook: "https://www.facebook.com/LaCasonaValladolid/",
+  },
+];
+---
+
+<BaseLayout title="Directorio de Socios">
+  <main
+    class="py-[var(--spacing-margin-desktop)] md:py-[var(--spacing-section-gap)] bg-[var(--color-surface-container-lowest)] min-h-screen"
+  >
+    <div
+      class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+    >
+      <div class="text-center mb-16 md:mb-24 reveal">
+        <span
+          class="text-[var(--color-primary)] font-montserrat font-semibold text-xs tracking-widest uppercase mb-4 block"
+          >Red Empresarial</span
+        >
+        <h1
+          class="font-playfair font-black text-4xl md:text-5xl lg:text-6xl text-[var(--color-primary)] mb-6 heading-transition leading-tight"
+        >
+          Directorio de Socios
+        </h1>
+        <p
+          class="font-inter text-lg text-[var(--color-on-surface-variant)] max-w-3xl mx-auto font-light leading-relaxed"
+        >
+          Conoce a las empresas líderes que forman parte de nuestra
+          confederación, fortaleciendo el ecosistema de negocios e impulsando el
+          desarrollo económico en la región de Valladolid.
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col lg:flex-row justify-between items-center mb-16 gap-6 reveal"
+        style="transition-delay: 100ms;"
+      >
+        <div
+          class="flex gap-3 overflow-x-auto w-full lg:w-auto pb-4 lg:pb-0 scrollbar-hide"
+          id="filterContainer"
+        >
+          <button
+            class="filter-btn active-filter bg-[var(--color-primary)] text-white font-montserrat font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-sm shrink-0 transition-colors"
+            data-filter="todos">Todos</button
+          >
+          <button
+            class="filter-btn bg-[var(--color-surface-container)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-high)] font-montserrat font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-colors shrink-0"
+            data-filter="turismo">Turismo</button
+          >
+          <button
+            class="filter-btn bg-[var(--color-surface-container)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-high)] font-montserrat font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-colors shrink-0"
+            data-filter="comercio">Comercio</button
+          >
+          <button
+            class="filter-btn bg-[var(--color-surface-container)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-high)] font-montserrat font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-colors shrink-0"
+            data-filter="educación">Educación</button
+          >
+          <button
+            class="filter-btn bg-[var(--color-surface-container)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-high)] font-montserrat font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-colors shrink-0"
+            data-filter="industria">Industria</button
+          >
+          <button
+            class="filter-btn bg-[var(--color-surface-container)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-high)] font-montserrat font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-colors shrink-0"
+            data-filter="gastronomía">Gastronomía</button
+          >
+        </div>
+
+        <div class="relative w-full lg:w-80">
+          <input
+            id="searchInput"
+            class="w-full bg-[var(--color-surface-bright)] border border-[var(--color-outline-variant)]/50 rounded-full py-3.5 pl-5 pr-12 text-sm font-inter text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-all"
+            placeholder="Buscar empresa..."
+            type="text"
+            autocomplete="off"
+          />
+          <span
+            class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-[var(--color-outline)]"
+            >search</span
+          >
+        </div>
+      </div>
+
+      <!-- Grid de Tarjetas -->
+      <div
+        id="sociosGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-12"
+      >
+        {
+          partnersData.map((partner, index) => (
+            <SocioCard
+              name={partner.name}
+              logo={partner.logo}
+              category={partner.category}
+              description={partner.description}
+              icon={partner.icon}
+              delay={`${(index % 4) * 100}ms`}
+              facebook={partner.facebook}
+              instagram={partner.instagram}
+              linkedin={partner.linkedin}
+              website={partner.website}
+            />
+          ))
+        }
+      </div>
+
+      <!-- <div class="text-center mt-20 reveal">
+        <button
+          class="bg-transparent border border-[var(--color-outline-variant)] text-[var(--color-on-surface-variant)] font-montserrat font-semibold px-10 py-4 rounded-full hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all tracking-widest uppercase text-sm transform hover:-translate-y-1"
+        >
+          Cargar Más Empresas
+        </button>
+      </div> -->
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const searchInput = document.getElementById(
+      "searchInput",
+    ) as HTMLInputElement;
+    const cards = document.querySelectorAll(".socio-card");
+
+    let currentCategory = "todos";
+    let searchQuery = "";
+
+    //Logica de busqueda
+    const filterCards = () => {
+      cards.forEach((card) => {
+        const category =
+          card
+            .getAttribute("data-category")
+            ?.toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") || "";
+        const name =
+          card
+            .getAttribute("data-name")
+            ?.toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") || "";
+
+        const normalizedSearch = searchQuery
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        const normalizedCurrentCategory = currentCategory
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+
+        const matchesCategory =
+          normalizedCurrentCategory === "todos" ||
+          category === normalizedCurrentCategory;
+        const matchesSearch = name.includes(normalizedSearch);
+
+        if (matchesCategory && matchesSearch) {
+          (card as HTMLElement).style.display = "block";
+        } else {
+          (card as HTMLElement).style.display = "none";
+        }
+      });
+    };
+
+    // Lógica para los botones de categoría
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const target = e.currentTarget as HTMLElement;
+        filterBtns.forEach((b) => {
+          b.className =
+            "filter-btn bg-[var(--color-surface-container)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-high)] font-montserrat font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-colors shrink-0";
+        });
+
+        target.className =
+          "filter-btn active-filter bg-[var(--color-primary)] text-white font-montserrat font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-sm shrink-0 transition-colors";
+
+        currentCategory = target.getAttribute("data-filter") || "todos";
+        filterCards();
+      });
+    });
+
+    // Lógica para el input de texto
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
+        filterCards();
+      });
+    }
+  });
+</script>
