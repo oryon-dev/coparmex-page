@@ -1,0 +1,255 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import fotoPresidente from "../assets/pages/nosotros/presidente-coparmex.png";
+import { Image } from "astro:assets";
+---
+
+<BaseLayout title="Nosotros | COPARMEX Valladolid">
+  <main class="w-full bg-white">
+    <section class="py-12 md:py-24 relative overflow-hidden bg-white">
+      <div
+        class="max-w-6xl mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] flex flex-col md:flex-row items-center gap-12 md:gap-16 reveal"
+      >
+        <div class="w-full md:w-5/12 relative">
+          <div
+            class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-[var(--color-primary)]/20 transition-all duration-500 hover:border-[var(--color-primary)]/50"
+          >
+          </div>
+          <div
+            class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-[var(--color-primary)]/20 transition-all duration-500 hover:border-[var(--color-primary)]/50"
+          >
+          </div>
+
+          <div
+            class="relative z-10 bg-white p-3 rounded-sm shadow-[0_20px_50px_-15px_rgba(0,50,138,0.15)]"
+          >
+            <Image
+              class="w-full h-[400px] md:h-[500px] object-cover rounded-sm grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+              src={fotoPresidente}
+              alt="Presidente COPARMEX Valladolid - Isaac Díaz Alcocer"
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-7/12">
+          <span
+            class="text-[var(--color-primary)] font-montserrat font-semibold tracking-widest text-xs md:text-sm mb-4 block uppercase"
+          >
+            Mensaje de Presidencia
+          </span>
+          <h1
+            class="font-playfair font-black text-4xl md:text-5xl lg:text-6xl text-[var(--color-on-surface)] mb-6 leading-tight"
+          >
+            Liderazgo Comprometido con el <span
+              class="text-[var(--color-primary)]">Progreso</span
+            > de Valladolid
+          </h1>
+          <div class="w-20 h-1.5 bg-[var(--color-primary)] mb-8"></div>
+
+          <p
+            class="font-inter text-base md:text-lg text-[var(--color-on-surface-variant)] mb-8 font-light leading-relaxed"
+          >
+            "En COPARMEX Valladolid, nuestra visión es clara: fortalecer el
+            tejido empresarial de nuestra región para generar un crecimiento
+            inclusivo y sostenible. Como representantes del sector patronal,
+            trabajamos incansablemente para ser el puente entre la innovación y
+            la tradición que define a nuestra ciudad."
+          </p>
+          <p
+            class="font-inter text-base text-[var(--color-on-surface-variant)] mb-10 font-light leading-relaxed italic border-l-4 border-[var(--color-primary)]/30 pl-6 bg-[var(--color-surface-container)]/30 py-3 rounded-r-md"
+          >
+            "Nuestra misión es defender los legítimos intereses de los
+            empresarios, promoviendo siempre la responsabilidad social y el bien
+            común. Bienvenidos a una institución que cree en la unidad como
+            motor de cambio."
+          </p>
+
+          <div class="flex flex-col">
+            <span
+              class="font-montserrat text-xl font-bold text-[var(--color-primary)]"
+              >M.F. Isaac Emilio Díaz Alcocer</span
+            >
+            <span
+              class="font-inter text-sm text-[var(--color-secondary)] font-semibold mt-1"
+              >Presidente, COPARMEX Valladolid 2026-2027</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="bg-[var(--color-surface-bright)] py-16 md:py-24 border-t border-[var(--color-outline-variant)]/30"
+    >
+      <div
+        class="max-w-7xl mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+      >
+        <div class="text-center mb-16 md:mb-20 reveal">
+          <h2
+            class="font-playfair font-bold text-3xl md:text-4xl lg:text-5xl text-[var(--color-primary)] mb-6"
+          >
+            Nuestros Pilares Institucionales
+          </h2>
+          <p
+            class="font-inter text-lg md:text-xl text-[var(--color-on-surface-variant)] font-light max-w-3xl mx-auto"
+          >
+            Estructuramos nuestro impacto a través de valores sólidos y una
+            visión de futuro clara para nuestra comunidad empresarial.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 reveal"
+          style="transition-delay: 100ms;"
+        >
+          <div
+            class="lg:col-span-6 flex flex-col items-center text-center group bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-[var(--color-outline-variant)]/30 hover:shadow-xl transition-all duration-500"
+          >
+            <div
+              class="mb-8 w-20 h-20 bg-[var(--color-surface-container)] rounded-full flex items-center justify-center group-hover:bg-[var(--color-primary)] group-hover:-translate-y-3 transition-all duration-500"
+            >
+              <span
+                class="material-symbols-outlined text-[var(--color-primary)] group-hover:text-white text-4xl transition-colors duration-300"
+                >flag</span
+              >
+            </div>
+            <h3
+              class="font-montserrat font-bold text-2xl md:text-3xl mb-6 text-[var(--color-primary)] uppercase tracking-wider"
+            >
+              Misión
+            </h3>
+            <p
+              class="font-inter text-lg md:text-xl text-[var(--color-on-surface-variant)] font-light leading-relaxed w-full"
+            >
+              Promover el bien común, impulsando el emprendimiento y la
+              innovación en Valladolid, defendiendo las libertades económicas y
+              sociales para crear más y mejores empresas.
+            </p>
+          </div>
+
+          <div
+            class="lg:col-span-6 flex flex-col items-center text-center group bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-[var(--color-outline-variant)]/30 hover:shadow-xl transition-all duration-500"
+          >
+            <div
+              class="mb-8 w-20 h-20 bg-[var(--color-surface-container)] rounded-full flex items-center justify-center group-hover:bg-[var(--color-primary)] group-hover:-translate-y-3 transition-all duration-500"
+            >
+              <span
+                class="material-symbols-outlined text-[var(--color-primary)] group-hover:text-white text-4xl transition-colors duration-300"
+                >visibility</span
+              >
+            </div>
+            <h3
+              class="font-montserrat font-bold text-2xl md:text-3xl mb-6 text-[var(--color-primary)] uppercase tracking-wider"
+            >
+              Visión
+            </h3>
+            <p
+              class="font-inter text-lg md:text-xl text-[var(--color-on-surface-variant)] font-light leading-relaxed w-full"
+            >
+              Ser la organización empresarial líder y referente en el oriente de
+              Yucatán, reconocida por su integridad, capacidad de propuesta y
+              compromiso con el desarrollo integral de la sociedad.
+            </p>
+          </div>
+
+          <div
+            class="lg:col-span-12 flex flex-col items-center text-center group bg-white p-8 md:p-16 rounded-3xl shadow-sm border border-[var(--color-outline-variant)]/30 hover:shadow-xl transition-all duration-500 mt-2"
+          >
+            <div
+              class="mb-8 w-24 h-24 bg-[var(--color-surface-container)] rounded-full flex items-center justify-center group-hover:bg-[var(--color-primary)] group-hover:-translate-y-3 transition-all duration-500"
+            >
+              <span
+                class="material-symbols-outlined text-[var(--color-primary)] group-hover:text-white text-5xl transition-colors duration-300"
+                >handshake</span
+              >
+            </div>
+            <h3
+              class="font-montserrat font-bold text-2xl md:text-3xl mb-6 text-[var(--color-primary)] uppercase tracking-wider"
+            >
+              En qué creemos
+            </h3>
+            <p
+              class="font-inter text-lg md:text-2xl text-[var(--color-on-surface-variant)] font-light leading-relaxed max-w-5xl mx-auto"
+            >
+              Creemos en la libertad con responsabilidad, en la ética como eje
+              rector de los negocios y en la colaboración solidaria entre el
+              sector público y privado para el crecimiento mutuo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="bg-[var(--color-surface-container)] py-12 md:py-16 border-y border-[var(--color-outline-variant)]/30"
+    >
+      <div
+        class="max-w-6xl mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+      >
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center reveal"
+        >
+          <div
+            class="transform hover:scale-105 transition-transform duration-300"
+          >
+            <div
+              class="font-playfair font-black text-4xl md:text-5xl text-[var(--color-primary)] mb-2"
+            >
+              14+
+            </div>
+            <div
+              class="font-montserrat font-semibold text-[10px] md:text-xs text-[var(--color-on-surface-variant)] uppercase tracking-widest"
+            >
+              Años de Trayectoria
+            </div>
+          </div>
+
+          <div
+            class="transform hover:scale-105 transition-transform duration-300"
+          >
+            <div
+              class="font-playfair font-black text-4xl md:text-5xl text-[var(--color-primary)] mb-2"
+            >
+              50+
+            </div>
+            <div
+              class="font-montserrat font-semibold text-[10px] md:text-xs text-[var(--color-on-surface-variant)] uppercase tracking-widest"
+            >
+              Empresas Afiliadas
+            </div>
+          </div>
+
+          <div
+            class="transform hover:scale-105 transition-transform duration-300"
+          >
+            <div
+              class="font-playfair font-black text-4xl md:text-5xl text-[var(--color-primary)] mb-2"
+            >
+              5k+
+            </div>
+            <div
+              class="font-montserrat font-semibold text-[10px] md:text-xs text-[var(--color-on-surface-variant)] uppercase tracking-widest"
+            >
+              Empleos Impulsados
+            </div>
+          </div>
+
+          <div
+            class="transform hover:scale-105 transition-transform duration-300"
+          >
+            <div
+              class="font-playfair font-black text-4xl md:text-5xl text-[var(--color-primary)] mb-2"
+            >
+              100%
+            </div>
+            <div
+              class="font-montserrat font-semibold text-[10px] md:text-xs text-[var(--color-on-surface-variant)] uppercase tracking-widest"
+            >
+              Compromiso Social
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

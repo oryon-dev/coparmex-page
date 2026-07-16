@@ -9,7 +9,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   image: {
-    domains: ["lh3.googleusercontent.com"],
+    domains: ["https://lh3.googleusercontent.com"],
   },
   // redirects: {
   //   "/": {
