@@ -1,0 +1,334 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+
+import CourseCard from "../../components/servicios/CourseCard.astro";
+import imgVideollamada from "../../assets/pages/servicios/videollamada.png";
+import imgOnBoarding from "../../assets/pages/servicios/on-boarding.png";
+import imgJunta from "../../assets/pages/servicios/junta.png";
+import imgDigital from "../../assets/pages/servicios/digital.png";
+import imgSoftSkills from "../../assets/pages/servicios/soft-skills.png";
+import imgMetricas from "../../assets/pages/servicios/metricas.png";
+
+// Modalidades
+const modalidades = [
+  {
+    title: "Presencial",
+    description:
+      "Networking de alto nivel y aprendizaje práctico en nuestras instalaciones equipadas con tecnología de punta.",
+    image: imgVideollamada,
+  },
+  {
+    title: "Online (En Vivo)",
+    description:
+      "Flexibilidad total con la misma calidad de interacción. Sesiones síncronas con los mejores expertos nacionales.",
+    image: imgOnBoarding,
+  },
+  {
+    title: "In-Company",
+    description:
+      "Desarrollamos soluciones a medida para las necesidades específicas de su organización, directamente en su sede.",
+    image: imgJunta,
+  },
+];
+
+// Beneficios de COPARMEX
+const beneficios = [
+  {
+    icon: "verified",
+    title: "Certificación Institucional",
+    text: "Nuestros diplomas cuentan con el respaldo de la confederación patronal más importante de México.",
+  },
+  {
+    icon: "school",
+    title: "Instructores de Élite",
+    text: "Expertos con amplia trayectoria práctica en el sector privado y consultoría estratégica.",
+  },
+  {
+    icon: "trending_up",
+    title: "Enfoque a Resultados",
+    text: "Metodologías diseñadas para que el conocimiento sea aplicable inmediatamente en su empresa.",
+  },
+];
+
+// Arreglo de Cursos Activos (Inyectados al Componente)
+const cursosActivos = [
+  {
+    category: "Métricas",
+    date: "15 Octubre, 2026",
+    title: "Finanzas para No Financieros",
+    description:
+      "Domina los estados financieros básicos y toma decisiones estratégicas basadas en rentabilidad real.",
+    price: "$2,450 MXN",
+    image: imgMetricas,
+  },
+  {
+    category: "Digital",
+    date: "22 Octubre, 2026",
+    title: "Marketing Digital Estratégico",
+    description:
+      "Aprende a posicionar tu marca y optimizar la conversión en canales digitales para el mercado actual.",
+    price: "$3,200 MXN",
+    image: imgDigital,
+  },
+  {
+    category: "Soft Skills",
+    date: "05 Noviembre, 2026",
+    title: "Liderazgo de Alto Desempeño",
+    description:
+      "Herramientas avanzadas para la gestión de equipos, resolución de conflictos y cultura organizacional.",
+    price: "$2,800 MXN",
+    image: imgSoftSkills,
+  },
+];
+---
+
+<BaseLayout title="Centro de Capacitación Empresarial | COPARMEX">
+  <main class="bg-[var(--color-surface-bright)]">
+    <!-- Hero Section -->
+    <section class="relative min-h-[65vh] flex items-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA50z7NNxbuVl8QUsHxrYMIsDm9gQYDQuvi2SIH0G8pf9ObmekUI3UBWavWKQSl3NYoaITi4vZIPmmaf2zxbBngFxwWkMnIKOiY33PH8z1SugsBx60tiXWplJAOjE2wKkAOUrV6tXPNgorDXnYP-Ov3X0NFO-wQwl5nVP0Vz11N6YNUCLe5XnkweFT0F4ZQ9dEbEoc7F55dCGtgbjg3fMixpN4n60-ijvIv3HpeR1TuWNCXamSw19_vrggSZYQgjEz01uBXQ4HC8SY"
+          alt="Sala de juntas moderna"
+          class="w-full h-full object-cover scale-105"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/95 to-[var(--color-primary)]/60 z-10"
+        >
+        </div>
+      </div>
+
+      <div
+        class="relative z-20 max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] w-full text-white reveal"
+      >
+        <div class="max-w-2xl">
+          <span
+            class="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-white font-montserrat text-xs font-bold uppercase tracking-widest rounded-full mb-6"
+          >
+            FORMACIÓN DE ÉLITE
+          </span>
+          <h1
+            class="font-playfair font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight"
+          >
+            Centro de Capacitación Empresarial
+          </h1>
+          <p
+            class="font-inter font-light text-lg md:text-xl text-white/90 mb-10 max-w-xl leading-relaxed"
+          >
+            Impulsamos la competitividad y el liderazgo de las empresas en
+            Valladolid a través de programas de formación técnica y estratégica
+            de vanguardia.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#cursos"
+              class="bg-white text-[var(--color-primary)] font-montserrat text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-full hover:bg-[var(--color-surface-container)] text-center transition-all shadow-lg"
+            >
+              Ver Calendario
+            </a>
+            <a
+              href="/contacto"
+              class="border border-white/50 text-white font-montserrat text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-full hover:bg-white/10 text-center transition-all"
+            >
+              Solicitar Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modalidades Section -->
+    <section
+      class="py-16 md:py-24 max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+    >
+      <div class="text-center mb-16 reveal">
+        <h2
+          class="font-playfair font-bold text-3xl md:text-4xl text-[var(--color-primary)] mb-4"
+        >
+          Nuestras Modalidades
+        </h2>
+        <div class="h-1 w-20 bg-[var(--color-primary)] mx-auto rounded-full">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        {
+          modalidades.map((mod) => (
+            <div class="group overflow-hidden rounded-2xl bg-white border border-[var(--color-outline-variant)]/30 shadow-sm hover:shadow-xl transition-all duration-300 reveal">
+              <div class="h-56 md:h-64 overflow-hidden relative">
+                <Image
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  src={mod.image}
+                  alt={mod.title}
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div class="p-8">
+                <h3 class="font-montserrat font-bold text-xl text-[var(--color-primary)] mb-3">
+                  {mod.title}
+                </h3>
+                <p class="font-inter font-light text-[var(--color-on-surface-variant)] text-sm leading-relaxed mb-6">
+                  {mod.description}
+                </p>
+                <a
+                  class="text-[var(--color-primary)] font-montserrat font-bold text-xs uppercase tracking-wider flex items-center gap-2 group-hover:gap-4 transition-all"
+                  href="#"
+                >
+                  Conocer más{" "}
+                  <span class="material-symbols-outlined text-sm">
+                    arrow_forward
+                  </span>
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Por qué capacitarse (Split Design) -->
+    <section
+      class="flex flex-col lg:flex-row bg-white overflow-hidden border-y border-[var(--color-outline-variant)]/30"
+    >
+      <div
+        class="w-full lg:w-1/2 p-12 md:p-20 bg-[var(--color-primary)] text-white flex flex-col justify-center reveal"
+      >
+        <h2
+          class="font-playfair font-bold text-3xl md:text-4xl mb-10 leading-tight"
+        >
+          ¿Por qué capacitarse en COPARMEX?
+        </h2>
+
+        <div class="space-y-8">
+          {
+            beneficios.map((beneficio) => (
+              <div class="flex gap-6 items-start">
+                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-white text-2xl">
+                    {beneficio.icon}
+                  </span>
+                </div>
+                <div>
+                  <h4 class="font-montserrat font-bold text-base md:text-lg mb-2 tracking-wide uppercase">
+                    {beneficio.title}
+                  </h4>
+                  <p class="font-inter font-light text-white/80 text-sm md:text-base leading-relaxed">
+                    {beneficio.text}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/2 min-h-[400px] lg:min-h-full relative reveal">
+        <img
+          class="absolute inset-0 w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpapRxRAuSJxmZjy7ahjSk8KWwbCe9khHJiich6wTo11UztZVkHhUFwMBqFCOP1r5dfaVgM3eu-5ZRbzsGmeffYmlqYbcxcMdiwj9VEw0Iy0BlvDEkekOkWMtOVARiMIUNqzvLLKoSJ6hjjVlbwrzs18ANOaX5EiIyL9zgUn1eSwXj7Q0fbv0wuR0PUY0BWsqM1Nq0k6bH4G2I33Yk_2I6JscYxhgugYlBBoVKXydgn6ffjVQo3FD1keYTY8aW0TDR7tW3qu2ih_s"
+          alt="Consultor COPARMEX"
+        />
+      </div>
+    </section>
+
+    <!-- Grid de Próximos Cursos (Componentizado) -->
+    <section
+      id="cursos"
+      class="py-16 md:py-24 max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 reveal"
+      >
+        <div class="text-center md:text-left">
+          <h2
+            class="font-playfair font-bold text-3xl md:text-4xl text-[var(--color-primary)] mb-3"
+          >
+            Próximos Cursos y Talleres
+          </h2>
+          <p
+            class="font-inter font-light text-[var(--color-on-surface-variant)] text-lg"
+          >
+            Actualice sus competencias con nuestra oferta formativa trimestral.
+          </p>
+        </div>
+        <a
+          href="#"
+          class="font-montserrat font-bold text-xs uppercase tracking-wider text-[var(--color-primary)] border border-[var(--color-primary)] px-6 py-3 rounded-full hover:bg-[var(--color-primary)] hover:text-white transition-colors whitespace-nowrap"
+        >
+          Ver Calendario Completo
+        </a>
+      </div>
+
+      <!-- Usamos nuestro componente inyectando la Data -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {cursosActivos.map((curso) => <CourseCard {...curso} />)}
+      </div>
+    </section>
+
+    <!-- Newsletter / CTA -->
+    <section
+      class="bg-[var(--color-surface-container)] py-16 border-t border-[var(--color-outline-variant)]/20"
+    >
+      <div
+        class="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] flex flex-col md:flex-row items-center justify-between gap-10 reveal"
+      >
+        <div class="max-w-lg text-center md:text-left">
+          <h2
+            class="font-playfair font-bold text-3xl md:text-4xl text-[var(--color-primary)] mb-4"
+          >
+            Manténgase Informado
+          </h2>
+          <p
+            class="font-inter font-light text-[var(--color-on-surface-variant)] text-lg"
+          >
+            Suscríbase para recibir el calendario mensual de cursos y tarifas
+            preferenciales.
+          </p>
+        </div>
+
+        <form class="flex flex-col sm:flex-row w-full md:w-auto gap-3">
+          <input
+            class="bg-white border border-[var(--color-outline-variant)]/50 px-6 py-4 rounded-full w-full sm:w-72 md:w-80 font-inter text-sm focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] outline-none"
+            placeholder="Su correo electrónico"
+            type="email"
+            required
+          />
+          <button
+            class="bg-[var(--color-primary)] text-white font-montserrat font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-full hover:bg-[var(--color-primary-container)] transition-colors shadow-md hover:shadow-lg"
+          >
+            Suscribirse
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  // Script para animaciones reveal on-scroll
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-8");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => {
+      el.classList.add(
+        "transition-all",
+        "duration-700",
+        "opacity-0",
+        "translate-y-8",
+      );
+      observer.observe(el);
+    });
+  });
+</script>

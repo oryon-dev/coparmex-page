@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  category: string;
+  date: string;
+  title: string;
+  description: string;
+  price: string;
+  image: any;
+}
+
+const { category, date, title, description, price, image } = Astro.props;
+---
+
+<div
+  class="bg-white border border-[var(--color-outline-variant)]/30 rounded-2xl overflow-hidden flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal"
+>
+  <div
+    class="relative h-48 md:h-52 overflow-hidden bg-[var(--color-surface-container)]"
+  >
+    <Image
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+      src={image}
+      alt={`Curso: ${title}`}
+    />
+    <div
+      class="absolute top-4 right-4 bg-[var(--color-tertiary)]/90 backdrop-blur-sm text-white text-[10px] font-montserrat font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-sm"
+    >
+      {category}
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="p-6 md:p-8 flex-grow flex flex-col">
+    <div
+      class="flex items-center gap-2 text-[var(--color-primary)] font-montserrat font-bold text-xs uppercase tracking-wider mb-3"
+    >
+      <span class="material-symbols-outlined text-sm">calendar_month</span>
+      {date}
+    </div>
+
+    <h3
+      class="font-playfair font-bold text-xl md:text-2xl text-[var(--color-on-surface)] mb-3 leading-tight"
+    >
+      {title}
+    </h3>
+
+    <p
+      class="font-inter font-light text-sm text-[var(--color-on-surface-variant)] mb-6 line-clamp-3 leading-relaxed"
+    >
+      {description}
+    </p>
+
+    <div
+      class="flex justify-between items-center pt-5 mt-auto border-t border-[var(--color-outline-variant)]/20"
+    >
+      <span
+        class="font-montserrat font-bold text-[var(--color-primary)] text-lg"
+        >{price}</span
+      >
+      <button
+        class="bg-transparent border border-[var(--color-primary)] text-[var(--color-primary)] text-xs font-montserrat font-bold uppercase tracking-wider px-5 py-2.5 rounded-full hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+      >
+        Inscribirse
+      </button>
+    </div>
+  </div>
+</div>

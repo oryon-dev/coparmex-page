@@ -1,0 +1,299 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import heroBg from "../../assets/pages/servicios/hero-juridico.png";
+import approachImg from "../../assets/pages/servicios/approach-juridico.png";
+
+const especialidades = [
+  {
+    icon: "work",
+    title: "Derecho Laboral",
+    description:
+      "Gestión estratégica de relaciones obrero-patronales y cumplimiento normativo.",
+  },
+  {
+    icon: "account_balance",
+    title: "Defensa Fiscal",
+    description:
+      "Protección jurídica ante actos de autoridades administrativas y fiscales.",
+  },
+  {
+    icon: "domain",
+    title: "Corporativo",
+    description:
+      "Blindaje contractual, actas de asamblea y estructuras mercantiles sólidas.",
+  },
+  {
+    icon: "shield",
+    title: "Defensa Inst.",
+    description:
+      "Representación gremial ante políticas públicas que afecten al sector empresarial.",
+  },
+];
+
+const filosofia = [
+  {
+    title: "Confidencialidad absoluta",
+    text: "Tratamiento ético y discreto de toda la información sensible de su empresa.",
+  },
+  {
+    title: "Abogados especialistas",
+    text: "Contamos con un equipo multidisciplinario para cubrir cada arista del derecho.",
+  },
+  {
+    title: "Respaldo nacional",
+    text: "La fuerza de COPARMEX Nacional respalda nuestras acciones institucionales.",
+  },
+];
+
+const pasos = [
+  {
+    num: "1",
+    title: "Diagnóstico Inicial",
+    desc: "Revisión gratuita y confidencial de la situación actual del caso o empresa.",
+  },
+  {
+    num: "2",
+    title: "Estrategia Legal",
+    desc: "Propuesta de acción técnica y cotización con tarifas preferenciales para socios.",
+  },
+  {
+    num: "3",
+    title: "Ejecución y Blindaje",
+    desc: "Seguimiento puntual ante instancias legales hasta lograr la resolución favorable.",
+  },
+];
+---
+
+<BaseLayout title="Representación Jurídica | COPARMEX Valladolid">
+  <main class="bg-white">
+    <!-- Hero Section -->
+    <section class="relative min-h-[70vh] flex items-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <Image
+          alt="Sala de juntas legal"
+          src={heroBg}
+          class="w-full h-full object-cover scale-105"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/95 to-[var(--color-primary)]/75 z-10"
+        >
+        </div>
+      </div>
+
+      <div
+        class="relative z-20 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max-width)] mx-auto w-full text-white reveal"
+      >
+        <div class="max-w-3xl">
+          <span
+            class="inline-block font-montserrat text-xs font-bold tracking-[0.2em] uppercase bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-6 border border-white/20"
+          >
+            SERVICIOS COPARMEX
+          </span>
+          <h1
+            class="font-playfair font-bold text-4xl md:text-6xl lg:text-7xl leading-tight mb-6"
+          >
+            Representación y <br /><span class="italic font-light opacity-90"
+              >Asesoría Jurídica</span
+            >
+          </h1>
+          <p
+            class="font-inter font-light text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-xl"
+          >
+            Protegemos los intereses de tu empresa con respaldo legal experto,
+            enfocado en la prevención y la defensa institucional.
+          </p>
+          <a
+            href="/contacto"
+            class="inline-flex items-center gap-3 bg-white text-[var(--color-primary)] px-8 py-4 rounded-full font-montserrat text-sm font-bold uppercase tracking-wider hover:bg-[var(--color-surface-bright)] hover:shadow-2xl transition-all active:scale-95 group"
+          >
+            Agendar Asesoría
+            <span
+              class="material-symbols-outlined transition-transform group-hover:translate-x-1"
+              >arrow_forward</span
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Especialidades Grid -->
+    <section
+      class="py-16 md:py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max-width)] mx-auto"
+    >
+      <div class="text-center mb-16 reveal">
+        <h2
+          class="font-playfair font-bold text-3xl md:text-4xl text-[var(--color-on-surface)] mb-4"
+        >
+          Especialidades Legales
+        </h2>
+        <div class="h-1 w-20 bg-[var(--color-primary)] mx-auto rounded-full">
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 reveal"
+      >
+        {
+          especialidades.map((esp) => (
+            <div class="bg-white p-8 rounded-3xl border border-[var(--color-outline-variant)]/30 shadow-sm hover:shadow-xl transition-all duration-300 group">
+              <div class="w-16 h-16 bg-[var(--color-surface-container)] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[var(--color-primary)] transition-colors duration-300">
+                <span class="material-symbols-outlined text-[var(--color-primary)] text-3xl group-hover:text-white transition-colors">
+                  {esp.icon}
+                </span>
+              </div>
+              <h3 class="font-montserrat text-lg font-bold text-[var(--color-on-surface)] mb-3 uppercase tracking-tight group-hover:text-[var(--color-primary)] transition-colors">
+                {esp.title}
+              </h3>
+              <p class="font-inter font-light text-[var(--color-on-surface-variant)] text-sm leading-relaxed">
+                {esp.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Enfoque (Split 50/50) -->
+    <section
+      class="bg-[var(--color-surface-bright)] py-16 md:py-24 border-y border-[var(--color-outline-variant)]/30"
+    >
+      <div
+        class="px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max-width)] mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16"
+      >
+        <div class="w-full lg:w-1/2 relative reveal">
+          <div
+            class="absolute -top-4 -left-4 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-2xl"
+          >
+          </div>
+          <div
+            class="relative rounded-3xl overflow-hidden shadow-2xl border border-[var(--color-outline-variant)]/20"
+          >
+            <Image
+              class="w-full h-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700"
+              src={approachImg}
+              alt="Asesoría Legal Profesional"
+            />
+          </div>
+
+          <div
+            class="absolute -bottom-6 -right-2 md:-right-6 bg-white/95 backdrop-blur-sm border border-[var(--color-outline-variant)]/30 p-6 rounded-2xl shadow-xl hidden md:block max-w-[220px]"
+          >
+            <p
+              class="font-montserrat text-xs font-bold text-[var(--color-primary)] uppercase mb-2"
+            >
+              Compromiso
+            </p>
+            <p
+              class="font-inter font-light text-sm text-[var(--color-on-surface)] leading-relaxed"
+            >
+              Asesoría de primer nivel para el socio COPARMEX.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 reveal">
+          <span
+            class="font-montserrat text-xs font-bold text-[var(--color-primary)] tracking-widest uppercase mb-4 block"
+            >Filosofía Legal</span
+          >
+          <h2
+            class="font-playfair font-bold text-3xl md:text-5xl text-[var(--color-on-surface)] mb-8 leading-tight"
+          >
+            Prevención antes <br />que reacción
+          </h2>
+
+          <ul class="space-y-6 md:space-y-8">
+            {
+              filosofia.map((item) => (
+                <li class="flex items-start gap-4">
+                  <span class="material-symbols-outlined text-[var(--color-primary)] mt-1">
+                    check_circle
+                  </span>
+                  <div>
+                    <p class="font-montserrat text-sm md:text-base font-bold text-[var(--color-on-surface)] uppercase tracking-tight mb-1">
+                      {item.title}
+                    </p>
+                    <p class="font-inter font-light text-[var(--color-on-surface-variant)] text-sm md:text-base">
+                      {item.text}
+                    </p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso -->
+    <section
+      class="py-16 md:py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max-width)] mx-auto"
+    >
+      <div class="text-center mb-16 md:mb-20 reveal">
+        <h2
+          class="font-playfair font-bold text-3xl md:text-4xl text-[var(--color-on-surface)] mb-4"
+        >
+          Nuestro Proceso de Blindaje
+        </h2>
+        <p
+          class="font-inter font-light text-[var(--color-on-surface-variant)] text-lg max-w-2xl mx-auto"
+        >
+          Metodología rigurosa para garantizar la seguridad de su patrimonio.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative reveal">
+        <!-- Connector Line Desktop -->
+        <div
+          class="hidden md:block absolute top-6 left-[16.6%] w-[66.6%] h-[2px] bg-gradient-to-r from-transparent via-[var(--color-outline-variant)]/50 to-transparent -z-10"
+        >
+        </div>
+
+        {
+          pasos.map((paso) => (
+            <div class="text-center bg-white p-6 rounded-2xl">
+              <div class="w-12 h-12 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center font-montserrat font-bold text-xl mx-auto mb-6 shadow-md ring-8 ring-white">
+                {paso.num}
+              </div>
+              <h3 class="font-montserrat font-bold text-[var(--color-primary)] mb-3 uppercase tracking-wider">
+                {paso.title}
+              </h3>
+              <p class="font-inter font-light text-sm md:text-base text-[var(--color-on-surface-variant)] px-2">
+                {paso.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  // Script para animaciones reveal
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-8");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => {
+      el.classList.add(
+        "transition-all",
+        "duration-700",
+        "opacity-0",
+        "translate-y-8",
+      );
+      observer.observe(el);
+    });
+  });
+</script>
