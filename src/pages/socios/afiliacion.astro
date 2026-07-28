@@ -45,23 +45,43 @@ const beneficios = [
 const pasos = [
   {
     num: "1",
-    title: "Solicitud inicial",
-    desc: "Completa nuestro formulario digital de contacto.",
+    title: "Primer contacto",
+    desc: "Acércate con nuestro equipo y cuéntanos sobre tu empresa.",
   },
   {
     num: "2",
-    title: "Entrega de documentos",
-    desc: "Validación de requisitos legales y constitutivos.",
+    title: "Presentación de beneficios",
+    desc: "Conoce a detalle las ventajas de formar parte de COPARMEX.",
   },
   {
     num: "3",
-    title: "Aportación de cuota",
-    desc: "Suscripción anual según el tamaño de tu empresa.",
+    title: "Integración del expediente",
+    desc: "Recopilación de la documentación legal y constitutiva.",
   },
   {
     num: "4",
-    title: "¡Bienvenido socio!",
-    desc: "Integración formal a la comunidad COPARMEX.",
+    title: "Registro y validación",
+    desc: "Revisión y verificación de la información proporcionada.",
+  },
+  {
+    num: "5",
+    title: "Pago de la cuota de afiliación",
+    desc: "Formaliza tu ingreso con la aportación correspondiente.",
+  },
+  {
+    num: "6",
+    title: "Alta como socio",
+    desc: "Inscripción oficial dentro del padrón de afiliados.",
+  },
+  {
+    num: "7",
+    title: "Bienvenida e integración",
+    desc: "Presentación ante la comunidad empresarial COPARMEX.",
+  },
+  {
+    num: "8",
+    title: "Seguimiento",
+    desc: "Acompañamiento continuo para aprovechar al máximo tu membresía.",
   },
 ];
 
@@ -197,32 +217,86 @@ const testimonios = [
       class="py-16 md:py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-white"
     >
       <div class="max-w-[var(--spacing-container-max-width)] mx-auto">
-        <h2
-          class="font-playfair text-3xl md:text-4xl font-bold text-center mb-16 md:mb-20 text-[var(--color-primary)] reveal"
-        >
-          Proceso de Afiliación
-        </h2>
+        <div class="text-center mb-16 md:mb-20 space-y-4 reveal">
+          <h2
+            class="font-playfair text-3xl md:text-4xl font-bold text-[var(--color-primary)]"
+          >
+            Proceso de Afiliación
+          </h2>
+          <p
+            class="font-montserrat text-sm tracking-[0.2em] uppercase text-[var(--color-on-surface-variant)] font-semibold"
+          >
+            COPARMEX Valladolid
+          </p>
+          <p
+            class="font-inter font-light text-base md:text-lg text-[var(--color-on-surface-variant)] max-w-2xl mx-auto leading-relaxed pt-2"
+          >
+            Con el objetivo de brindar una atención ágil y personalizada a las
+            empresas interesadas en formar parte de nuestra comunidad
+            empresarial, el proceso de afiliación se desarrolla de la
+            siguiente manera:
+          </p>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative reveal">
+        <div class="max-w-2xl mx-auto reveal">
           {
             pasos.map((paso, index) => (
-              <div
-                class={`relative z-10 text-center space-y-4 ${index !== pasos.length - 1 ? "process-line" : ""}`}
-              >
-                <div
-                  class={`w-14 h-14 ${index === pasos.length - 1 ? "bg-[var(--color-tertiary)]" : "bg-[var(--color-primary)]"} text-white rounded-full flex items-center justify-center mx-auto font-montserrat font-bold text-xl border-4 border-white shadow-md transition-transform hover:scale-110 duration-300`}
-                >
-                  {paso.num}
+              <div class="flex gap-6 md:gap-8">
+                <div class="flex flex-col items-center">
+                  <div
+                    class={`w-14 h-14 shrink-0 ${index === pasos.length - 1 ? "bg-[var(--color-tertiary)]" : "bg-[var(--color-primary)]"} text-white rounded-full flex items-center justify-center font-montserrat font-bold text-xl border-4 border-white shadow-md transition-transform hover:scale-110 duration-300`}
+                  >
+                    {paso.num}
+                  </div>
+                  {index !== pasos.length - 1 && (
+                    <div class="w-0.5 flex-1 my-2 bg-[var(--color-outline-variant)]" />
+                  )}
                 </div>
-                <h4 class="font-montserrat font-bold text-sm md:text-base tracking-wider uppercase pt-4 text-[var(--color-primary)]">
-                  {paso.title}
-                </h4>
-                <p class="font-inter font-light text-sm text-[var(--color-on-surface-variant)]">
-                  {paso.desc}
-                </p>
+                <div class={index !== pasos.length - 1 ? "pb-10 md:pb-12" : ""}>
+                  <h4 class="font-montserrat font-bold text-sm md:text-base tracking-wider uppercase pt-3 text-[var(--color-primary)]">
+                    {paso.title}
+                  </h4>
+                  <p class="font-inter font-light text-sm md:text-base text-[var(--color-on-surface-variant)] mt-2 leading-relaxed">
+                    {paso.desc}
+                  </p>
+                </div>
               </div>
             ))
           }
+        </div>
+      </div>
+    </section>
+
+    <!-- Objetivo -->
+    <section
+      class="py-16 md:py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-[var(--color-surface-container)] border-y border-[var(--color-outline-variant)]/30"
+    >
+      <div class="max-w-4xl mx-auto reveal">
+        <div
+          class="flex flex-col items-center text-center bg-white p-8 md:p-16 rounded-3xl shadow-sm border border-[var(--color-outline-variant)]/30"
+        >
+          <div
+            class="mb-8 w-20 h-20 bg-[var(--color-surface-container)] rounded-full flex items-center justify-center"
+          >
+            <span
+              class="material-symbols-outlined text-[var(--color-primary)] text-4xl"
+              >target</span
+            >
+          </div>
+          <h2
+            class="font-playfair font-bold text-3xl md:text-4xl text-[var(--color-primary)] mb-6"
+          >
+            Objetivo
+          </h2>
+          <div class="w-20 h-1.5 bg-[var(--color-primary)] mb-8"></div>
+          <p
+            class="font-inter text-lg md:text-xl text-[var(--color-on-surface-variant)] font-light leading-relaxed max-w-2xl mx-auto"
+          >
+            Facilitar la incorporación de nuevos socios, ofreciendo un
+            proceso transparente, eficiente y cercano, que fortalezca la
+            comunidad empresarial de COPARMEX Valladolid y genere valor para
+            las empresas afiliadas.
+          </p>
         </div>
       </div>
     </section>
@@ -310,31 +384,6 @@ const testimonios = [
     color: white;
   }
 
-  /* Línea conectora para el Stepper (Timeline) */
-  .process-line::after {
-    content: "";
-    position: absolute;
-    top: 28px;
-    left: calc(50% + 28px);
-    right: calc(-50% + 28px);
-    height: 2px;
-    /* Usa un gradiente punteado sutil para conectar los pasos */
-    background: repeating-linear-gradient(
-      to right,
-      var(--color-outline-variant) 0,
-      var(--color-outline-variant) 6px,
-      transparent 6px,
-      transparent 12px
-    );
-    z-index: -1;
-    opacity: 0.5;
-  }
-
-  @media (max-width: 768px) {
-    .process-line::after {
-      display: none;
-    }
-  }
 </style>
 
 <script>

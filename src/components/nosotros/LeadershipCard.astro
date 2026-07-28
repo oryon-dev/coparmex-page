@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 interface Props {
   role: string;
   name: string;
-  company: string;
+  company?: string;
   image: any;
   email?: string;
   linkedin?: string;
@@ -39,11 +39,13 @@ const { role, name, company, image, email, linkedin } = Astro.props;
     >
       {name}
     </h3>
-    <p
-      class="font-inter text-[var(--color-on-surface-variant)] mb-6 italic text-sm md:text-base font-light"
-    >
-      {company}
-    </p>
+    {
+      company && (
+        <p class="font-inter text-[var(--color-on-surface-variant)] mb-6 italic text-sm md:text-base font-light">
+          {company}
+        </p>
+      )
+    }
 
     <!-- Botonera de Contacto -->
     <div class="mt-auto flex gap-4">

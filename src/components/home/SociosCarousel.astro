@@ -68,17 +68,18 @@ const infinitePartners = [...partnersData, ...partnersData];
     </div>
 
     <div class="relative overflow-hidden w-full">
-      <div class="infinite-scroll gap-12 items-center flex w-max">
+      <div class="infinite-scroll items-center flex w-max">
         {
           infinitePartners.map((partner, index) => (
             <div
-              class="w-[200px] md:w-[250px] shrink-0 flex justify-center p-6 bg-white shadow-sm border border-[var(--color-outline-variant)]/10 rounded-sm hover:shadow-md transition-shadow"
+              class="w-[200px] md:w-[250px] mr-12 shrink-0 flex justify-center p-6 bg-white shadow-sm border border-[var(--color-outline-variant)]/10 rounded-sm hover:shadow-md transition-shadow"
               title={partner.name}
             >
               <Image
                 alt={`Logo de ${partner.name}`}
-                class="h-20 md:h-27 object-contain md:grayscale hover:grayscale-0 transition-all duration-500"
+                class="h-20 md:h-27 object-contain"
                 src={partner.logo}
+                loading="eager"
               />
             </div>
           ))
@@ -94,14 +95,14 @@ const infinitePartners = [...partnersData, ...partnersData];
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-250px * 4));
+      transform: translateX(-50%);
     }
   }
 
   .infinite-scroll {
     animation: scroll 30s linear infinite;
+    will-change: transform;
     display: flex;
-    width: calc(250px * 8);
   }
 
   .infinite-scroll:hover {
