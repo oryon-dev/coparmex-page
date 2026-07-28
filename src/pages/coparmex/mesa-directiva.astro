@@ -20,33 +20,39 @@ const presidente = {
   linkedin: "https://mx.linkedin.com/in/isaac-díaz-alcocer-15a4606b",
 };
 
-// Array del Consejo Ejecutivo
-const consejoEjecutivo = [
-  {
-    role: "Vicepresidencia Ejecutiva",
-    name: "C.P. Ana Elena Ruiz",
-    company: "Directora General de Consultoría Fiscal AR",
-    image: placeholderMujer,
-    email: "vicepresidencia@coparmexvalladolid.org",
-    linkedin: "#",
-  },
-  {
-    role: "Secretario",
-    name: "Ing. Roberto Duarte",
-    company: "Socio Fundador de TechLogistics México",
-    image: placeholderHombre,
-    email: "secretaria@coparmexvalladolid.org",
-    linkedin: "#",
-  },
-  {
-    role: "Tesorero",
-    name: "Lic. Miguel Sosa Lara",
-    company: "Director Regional de Banco Oriente",
-    image: placeholderHombre,
-    email: "tesoreria@coparmexvalladolid.org",
-    linkedin: "#",
-  },
-];
+// Array de Consejeros del Consejo Directivo
+const consejeros = [
+  { name: "Carlos Darío Aguilar Herrera", gender: "M" },
+  { name: "Carlos Leandro Osorio Rosado", gender: "M" },
+  { name: "David Francisco Rivero Arceo", gender: "M" },
+  { name: "David Manuel Vivas Novelo", gender: "M" },
+  { name: "Diego Alejandro Pech Moo", gender: "M" },
+  { name: "Enrique Roberto Castillo Terán", gender: "M" },
+  { name: "Ernesto Manuel Aguilar Mendoza", gender: "M" },
+  { name: "Fabio Adrián Díaz Alcocer", gender: "M" },
+  { name: "Gerardo Rubén Arceo Alcocer", gender: "M" },
+  { name: "Grecco Bejarano Díaz", gender: "M" },
+  { name: "Hernán Alcocer Souza", gender: "M" },
+  { name: "Hernán de Jesús Alcocer Méndez", gender: "M" },
+  { name: "Jesús Manuel Velasco Cervera", gender: "M" },
+  { name: "José Julio Romero Balam", gender: "M" },
+  { name: "José Manuel Pacheco González", gender: "M" },
+  { name: "Lizbeth Cruz Cruz", gender: "F" },
+  { name: "Manuel Francisco Narváez Briceño", gender: "M" },
+  { name: "Maricela Osorio Castillo", gender: "F" },
+  { name: "Nallely Leticia Loría Yam", gender: "F" },
+  { name: "Pedro Arturo Escobedo Guerrero", gender: "M" },
+  { name: "Ricardo Humberto Martín Segura", gender: "M" },
+  { name: "Rodrigo Escalante Escalante", gender: "M" },
+  { name: "Rosanelly Guadalupe Ayora Sosa", gender: "F" },
+  { name: "Russel Eduardo Miranda Rodríguez", gender: "M" },
+].map(({ name, gender }) => ({
+  role: "Miembro",
+  name,
+  image: gender === "F" ? placeholderMujer : placeholderHombre,
+  email: "#",
+  linkedin: "#",
+}));
 
 // Array de las Direcciones de Comisiones
 const comisiones = [
@@ -172,7 +178,7 @@ const comisiones = [
           <h2
             class="font-playfair font-bold text-3xl md:text-4xl text-[var(--color-primary)] mb-4"
           >
-            Consejo Ejecutivo
+            Consejo Directivo
           </h2>
           <p
             class="font-inter text-[var(--color-on-surface-variant)] text-lg font-light"
@@ -183,7 +189,7 @@ const comisiones = [
 
         <!-- GRID Responsivo: 1 columna celular, 2 columnas monitores -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
-          {consejoEjecutivo.map((lider) => <LeadershipCard {...lider} />)}
+          {consejeros.map((consejero) => <LeadershipCard {...consejero} />)}
         </div>
       </div>
     </section>
