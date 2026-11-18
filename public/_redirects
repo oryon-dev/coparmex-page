@@ -1,10 +1,22 @@
 # Sitio temporalmente fuera de servicio.
-# Las reglas se evalúan en orden: primero las que sirven /aviso y los recursos
-# estáticos (200, sin redirigir), y al final el comodín que manda todo lo demás a /aviso.
-# Sin estas excepciones, /aviso se redirigiría a sí mismo y el navegador marca
+# Solo reglas exactas para las rutas que existen: ninguna coincide con /aviso/,
+# así que no hay bucle. Las rutas desconocidas las atiende 404.html, que
+# muestra el mismo aviso. No usar un comodín /* aquí: atrapa /aviso/ y causa
 # "demasiadas redirecciones".
-/aviso        /aviso/index.html  200
-/aviso/       /aviso/index.html  200
-/_astro/*     /_astro/:splat     200
-/favicon.png  /favicon.png       200
-/*            /aviso             302
+/                                     /aviso/  302
+/proximamente                         /aviso/  302
+/proximamente/                        /aviso/  302
+/contacto                             /aviso/  302
+/contacto/                            /aviso/  302
+/coparmex/mesa-directiva              /aviso/  302
+/coparmex/mesa-directiva/             /aviso/  302
+/coparmex/nosotros                    /aviso/  302
+/coparmex/nosotros/                   /aviso/  302
+/servicios/capacitacion               /aviso/  302
+/servicios/capacitacion/              /aviso/  302
+/servicios/representacion-juridica    /aviso/  302
+/servicios/representacion-juridica/   /aviso/  302
+/socios/afiliacion                    /aviso/  302
+/socios/afiliacion/                   /aviso/  302
+/socios/directorio                    /aviso/  302
+/socios/directorio/                   /aviso/  302
