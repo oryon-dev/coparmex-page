@@ -39,5 +39,5 @@ Plataforma institucional moderna, rápida y **autogestionable** para la delegaci
 
 - Portal de afiliación con pago en línea de cuotas.
 - Área de socios con autenticación (login).
-- Multilenguaje (español, maya, inglés).
+- Multilenguaje (español, inglés).
 - Newsletter y automatización de marketing.
