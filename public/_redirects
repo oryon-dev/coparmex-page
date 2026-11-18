@@ -1,4 +1,10 @@
-# Sitio temporalmente fuera de servicio: cualquier ruta se redirige a /aviso.
-# Cloudflare Pages sirve primero los archivos existentes, así que /aviso y los
-# recursos estáticos (/_astro/*, /favicon.png) siguen funcionando sin bucle.
-/*  /aviso  302
+# Sitio temporalmente fuera de servicio.
+# Las reglas se evalúan en orden: primero las que sirven /aviso y los recursos
+# estáticos (200, sin redirigir), y al final el comodín que manda todo lo demás a /aviso.
+# Sin estas excepciones, /aviso se redirigiría a sí mismo y el navegador marca
+# "demasiadas redirecciones".
+/aviso        /aviso/index.html  200
+/aviso/       /aviso/index.html  200
+/_astro/*     /_astro/:splat     200
+/favicon.png  /favicon.png       200
+/*            /aviso             302
